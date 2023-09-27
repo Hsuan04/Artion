@@ -1,4 +1,4 @@
-package com.tha103.artion;
+package com.tha103.artion.ActivityLike.model;
 
 import java.sql.Timestamp;
 
