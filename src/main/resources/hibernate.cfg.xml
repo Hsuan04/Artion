@@ -3,11 +3,39 @@
 		"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
 		"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
 <hibernate-configuration>
-    <session-factory>
-        <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
-        <property name="hibernate.connection.password">861104</property>
-        <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/JDBCSample?serverTimezone=Asia/Taipei</property>
-        <property name="hibernate.connection.username">root</property>
-        <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
-    </session-factory>
+	<session-factory>
+		<property name="hibernate.connection.driver_class">com.mysql.cj.jdbc.Driver</property>
+		<property name="hibernate.connection.url">jdbc:mysql://localhost:3306/artion?serverTimezone=Asia/Taipei</property>
+		<property name="hibernate.connection.username">root</property>
+		<property name="hibernate.connection.password">861104</property>
+		<property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+
+		<property name="hibernate.show_sql">true</property>
+		<property name="hibernate.format_sql">true</property>
+		<property name="hibernate.hbm2ddl.auto">validate</property>
+		<property name="hebernate.current_session_context_class">thread</property>
+		
+		<mapping class="com.tha103.artion.member.model.MemberVO"/>
+  		<mapping class="com.tha103.artion.activityComment.model.ActivityCommentVO"/>
+  		<mapping class="com.tha103.artion.memberCollection.model.MemberCollectionVO"/>
+  		<mapping class="com.tha103.artion.memberlevel.model.MemberlevelVO"/>
+  		<mapping class="com.tha103.artion.myPromoCode.model.MyPromoCodeVO"/>
+		<mapping class="com.tha103.artion.area.model.AreaVO"/>
+  		<mapping class="com.tha103.artion.city.model.CityVO"/>
+  		<mapping class="com.tha103.artion.membernotify.model.MembernotifyVO"/>
+  		<mapping class="com.tha103.artion.merchorder.model.MerchOrderVO"/>
+  		<mapping class="com.tha103.artion.merchorderdetail.model.MerchOrderDetailVO"/>
+  		<mapping class="com.tha103.artion.ticketorder.model.TicketOrderVO"/>
+  		<mapping class="com.tha103.artion.ticketorderdetail.model.TicketOrderDetailVO"/>
+  		<mapping class="com.tha103.artion.activityLike.model.ActivityLikeVO"/>
+  		<mapping class="com.tha103.artion.activityCommentLike.model.ActivityCommentLikeVO"/>
+  		<mapping class="com.tha103.artion.sellernotification.model.SellerNotificationVO"/>
+  		<mapping class="com.tha103.artion.seller.model.SellerVO"/>
+  		<mapping class="com.tha103.artion.activity.model.ActivityVO"/>
+  		<mapping class="com.tha103.artion.administrator.model.AdministratorVO"/>
+  		<mapping class="com.tha103.artion.commentreport.model.CommentReportVO"/>
+  		<mapping class="com.tha103.artion.merch.model.MerchVO"/>
+  		<mapping class="com.tha103.artion.promocode.model.PromocodeVO"/>
+  		
+	</session-factory>
 </hibernate-configuration>
