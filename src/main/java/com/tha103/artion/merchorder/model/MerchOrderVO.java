@@ -17,117 +17,117 @@ public class MerchOrderVO {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "merOrder_id", updatable = false)
-	private Integer merOrder_id;
+	private Integer merOrderId;
 
 	@Column(name = "mem_id")
-	private Integer mem_id;
+	private Integer memId;
 
 	@Column(name = "merOrder_actuallyAmount")
-	private Double merOrder_actuallyAmount;
+	private Double merOrderActuallyAmount;
 
 	@Column(name = "merOrder_time")
-	private Timestamp merOrder_time;
+	private Timestamp merOrderTime;
 
 	@Column(name = "merOrder_payStatus")
-	private Integer merOrder_payStatus;
+	private Integer merOrderPayStatus;
 
 	@Column(name = "merOrder_status")
-	private Integer merOrder_status;
+	private Integer merOrderStatus;
 
 	@Column(name = "merOrder_address")
-	private String merOrder_address;
+	private String merOrderAddress;
 
 	@Column(name = "merOrder_code")
-	private String merOrder_code;
+	private String merOrderCode;
 
 	public MerchOrderVO() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public MerchOrderVO(Integer merOrder_id, Integer mem_id, Double merOrder_actuallyAmount, Timestamp merOrder_time,
-			Integer merOrder_payStatus, Integer merOrder_status, String merOrder_address, String merOrder_code) {
+	public MerchOrderVO(Integer merOrderId, Integer memId, Double merOrderActuallyAmount, Timestamp merOrderTime,
+			Integer merOrderPayStatus, Integer merOrderStatus, String merOrderAddress, String merOrderCode) {
 		super();
-		this.merOrder_id = merOrder_id;
-		this.mem_id = mem_id;
-		this.merOrder_actuallyAmount = merOrder_actuallyAmount;
-		this.merOrder_time = merOrder_time;
-		this.merOrder_payStatus = merOrder_payStatus;
-		this.merOrder_status = merOrder_status;
-		this.merOrder_address = merOrder_address;
-		this.merOrder_code = merOrder_code;
+		this.merOrderId = merOrderId;
+		this.memId = memId;
+		this.merOrderActuallyAmount = merOrderActuallyAmount;
+		this.merOrderTime = merOrderTime;
+		this.merOrderPayStatus = merOrderPayStatus;
+		this.merOrderStatus = merOrderStatus;
+		this.merOrderAddress = merOrderAddress;
+		this.merOrderCode = merOrderCode;
 	}
 
-	public Integer getMerOrder_id() {
-		return merOrder_id;
+	public Integer getMerOrderId() {
+		return merOrderId;
 	}
 
-	public void setMerOrder_id(Integer merOrder_id) {
-		this.merOrder_id = merOrder_id;
+	public void setMerOrderId(Integer merOrderId) {
+		this.merOrderId = merOrderId;
 	}
 
-	public Integer getMem_id() {
-		return mem_id;
+	public Integer getMemId() {
+		return memId;
 	}
 
-	public void setMem_id(Integer mem_id) {
-		this.mem_id = mem_id;
+	public void setMemId(Integer memId) {
+		this.memId = memId;
 	}
 
-	public Double getMerOrder_actuallyAmount() {
-		return merOrder_actuallyAmount;
+	public Double getMerOrderActuallyAmount() {
+		return merOrderActuallyAmount;
 	}
 
-	public void setMerOrder_actuallyAmount(Double merOrder_actuallyAmount) {
-		this.merOrder_actuallyAmount = merOrder_actuallyAmount;
+	public void setMerOrderActuallyAmount(Double merOrderActuallyAmount) {
+		this.merOrderActuallyAmount = merOrderActuallyAmount;
 	}
 
-	public Timestamp getMerOrder_time() {
-		return merOrder_time;
+	public Timestamp getMerOrderTime() {
+		return merOrderTime;
 	}
 
-	public void setMerOrder_time(Timestamp merOrder_time) {
-		this.merOrder_time = merOrder_time;
+	public void setMerOrderTime(Timestamp merOrderTime) {
+		this.merOrderTime = merOrderTime;
 	}
 
-	public Integer getMerOrder_payStatus() {
-		return merOrder_payStatus;
+	public Integer getMerOrderPayStatus() {
+		return merOrderPayStatus;
 	}
 
-	public void setMerOrder_payStatus(Integer merOrder_payStatus) {
-		this.merOrder_payStatus = merOrder_payStatus;
+	public void setMerOrderPayStatus(Integer merOrderPayStatus) {
+		this.merOrderPayStatus = merOrderPayStatus;
 	}
 
-	public Integer getMerOrder_status() {
-		return merOrder_status;
+	public Integer getMerOrderStatus() {
+		return merOrderStatus;
 	}
 
-	public void setMerOrder_status(Integer merOrder_status) {
-		this.merOrder_status = merOrder_status;
+	public void setMerOrderStatus(Integer merOrderStatus) {
+		this.merOrderStatus = merOrderStatus;
 	}
 
-	public String getMerOrder_address() {
-		return merOrder_address;
+	public String getMerOrderAddress() {
+		return merOrderAddress;
 	}
 
-	public void setMerOrder_address(String merOrder_address) {
-		this.merOrder_address = merOrder_address;
+	public void setMerOrderAddress(String merOrderAddress) {
+		this.merOrderAddress = merOrderAddress;
 	}
 
-	public String getMerOrder_code() {
-		return merOrder_code;
+	public String getMerOrderCode() {
+		return merOrderCode;
 	}
 
-	public void setMerOrder_code(String merOrder_code) {
-		this.merOrder_code = merOrder_code;
+	public void setMerOrderCode(String merOrderCode) {
+		this.merOrderCode = merOrderCode;
 	}
 
 	@Override
 	public String toString() {
-		return "MerchOrderVO [merOrder_id=" + merOrder_id + ", mem_id=" + mem_id + ", merOrder_actuallyAmount="
-				+ merOrder_actuallyAmount + ", merOrder_time=" + merOrder_time + ", merOrder_payStatus="
-				+ merOrder_payStatus + ", merOrder_status=" + merOrder_status + ", merOrder_address=" + merOrder_address
-				+ ", merOrder_code=" + merOrder_code + "]";
+		return "MerchOrderVO [merOrderId=" + merOrderId + ", memId=" + memId + ", merOrderActuallyAmount="
+				+ merOrderActuallyAmount + ", merOrderTime=" + merOrderTime + ", merOrderPayStatus=" + merOrderPayStatus
+				+ ", merOrderStatus=" + merOrderStatus + ", merOrderAddress=" + merOrderAddress + ", merOrderCode="
+				+ merOrderCode + "]";
 	}
 
 }

@@ -17,169 +17,169 @@ public class TicketOrderVO {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "ticketOrd_id", updatable = false)
-	private Integer ticketOrd_id;
+	private Integer ticketOrdId;
 
 	@Column(name = "ticketOrd_time")
-	private Timestamp ticketOrd_time;
+	private Timestamp ticketOrdTime;
 
 	@Column(name = "mem_id")
-	private Integer mem_id;
+	private Integer memId;
 
 	@Column(name = "ticketOrd_status")
-	private Integer ticketOrd_status;
+	private Integer ticketOrdStatus;
 
 	@Column(name = "ticketOrd_totalPrice")
-	private Double ticketOrd_totalPrice;
+	private Double ticketOrdTotalPrice;
 
 	@Column(name = "ticketOrd_proCodeAmount")
-	private Double ticketOrd_proCodeAmount;
+	private Double ticketOrdProCodeAmount;
 
 	@Column(name = "ticketOrd_actuallyAmount")
-	private Double ticketOrd_actuallyAmount;
+	private Double ticketOrdActuallyAmount;
 
 	@Column(name = "ticketOrd_payStatus")
-	private Integer ticketOrd_payStatus;
+	private Integer ticketOrdPayStatus;
 
 	@Column(name = "myProCode_id")
-	private Integer myProCode_id;
+	private Integer myProCodeId;
 
 	@Column(name = "ticketOrd_address")
-	private String ticketOrd_address;
+	private String ticketOrdAddress;
 
 	@Column(name = "sel_id")
-	private Integer sel_id;
+	private Integer selId;
 
 	@Column(name = "ticketOrd_code")
-	private String ticketOrd_code;
+	private String ticketOrdCode;
 
 	public TicketOrderVO() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public TicketOrderVO(Integer ticketOrd_id, Timestamp ticketOrd_time, Integer mem_id, Integer ticketOrd_status,
-			Double ticketOrd_totalPrice, Double ticketOrd_proCodeAmount, Double ticketOrd_actuallyAmount,
-			Integer ticketOrd_payStatus, Integer myProCode_id, String ticketOrd_address, Integer sel_id,
-			String ticketOrd_code) {
+	public TicketOrderVO(Integer ticketOrdId, Timestamp ticketOrdTime, Integer memId, Integer ticketOrdStatus,
+			Double ticketOrdTotalPrice, Double ticketOrdProCodeAmount, Double ticketOrdActuallyAmount,
+			Integer ticketOrdPayStatus, Integer myProCodeId, String ticketOrdAddress, Integer selId,
+			String ticketOrdCode) {
 		super();
-		this.ticketOrd_id = ticketOrd_id;
-		this.ticketOrd_time = ticketOrd_time;
-		this.mem_id = mem_id;
-		this.ticketOrd_status = ticketOrd_status;
-		this.ticketOrd_totalPrice = ticketOrd_totalPrice;
-		this.ticketOrd_proCodeAmount = ticketOrd_proCodeAmount;
-		this.ticketOrd_actuallyAmount = ticketOrd_actuallyAmount;
-		this.ticketOrd_payStatus = ticketOrd_payStatus;
-		this.myProCode_id = myProCode_id;
-		this.ticketOrd_address = ticketOrd_address;
-		this.sel_id = sel_id;
-		this.ticketOrd_code = ticketOrd_code;
+		this.ticketOrdId = ticketOrdId;
+		this.ticketOrdTime = ticketOrdTime;
+		this.memId = memId;
+		this.ticketOrdStatus = ticketOrdStatus;
+		this.ticketOrdTotalPrice = ticketOrdTotalPrice;
+		this.ticketOrdProCodeAmount = ticketOrdProCodeAmount;
+		this.ticketOrdActuallyAmount = ticketOrdActuallyAmount;
+		this.ticketOrdPayStatus = ticketOrdPayStatus;
+		this.myProCodeId = myProCodeId;
+		this.ticketOrdAddress = ticketOrdAddress;
+		this.selId = selId;
+		this.ticketOrdCode = ticketOrdCode;
 	}
 
-	public Integer getTicketOrd_id() {
-		return ticketOrd_id;
+	public Integer getTicketOrdId() {
+		return ticketOrdId;
 	}
 
-	public void setTicketOrd_id(Integer ticketOrd_id) {
-		this.ticketOrd_id = ticketOrd_id;
+	public void setTicketOrdId(Integer ticketOrdId) {
+		this.ticketOrdId = ticketOrdId;
 	}
 
-	public Timestamp getTicketOrd_time() {
-		return ticketOrd_time;
+	public Timestamp getTicketOrdTime() {
+		return ticketOrdTime;
 	}
 
-	public void setTicketOrd_time(Timestamp ticketOrd_time) {
-		this.ticketOrd_time = ticketOrd_time;
+	public void setTicketOrdTime(Timestamp ticketOrdTime) {
+		this.ticketOrdTime = ticketOrdTime;
 	}
 
-	public Integer getMem_id() {
-		return mem_id;
+	public Integer getMemId() {
+		return memId;
 	}
 
-	public void setMem_id(Integer mem_id) {
-		this.mem_id = mem_id;
+	public void setMemId(Integer memId) {
+		this.memId = memId;
 	}
 
-	public Integer getTicketOrd_status() {
-		return ticketOrd_status;
+	public Integer getTicketOrdStatus() {
+		return ticketOrdStatus;
 	}
 
-	public void setTicketOrd_status(Integer ticketOrd_status) {
-		this.ticketOrd_status = ticketOrd_status;
+	public void setTicketOrdStatus(Integer ticketOrdStatus) {
+		this.ticketOrdStatus = ticketOrdStatus;
 	}
 
-	public Double getTicketOrd_totalPrice() {
-		return ticketOrd_totalPrice;
+	public Double getTicketOrdTotalPrice() {
+		return ticketOrdTotalPrice;
 	}
 
-	public void setTicketOrd_totalPrice(Double ticketOrd_totalPrice) {
-		this.ticketOrd_totalPrice = ticketOrd_totalPrice;
+	public void setTicketOrdTotalPrice(Double ticketOrdTotalPrice) {
+		this.ticketOrdTotalPrice = ticketOrdTotalPrice;
 	}
 
-	public Double getTicketOrd_proCodeAmount() {
-		return ticketOrd_proCodeAmount;
+	public Double getTicketOrdProCodeAmount() {
+		return ticketOrdProCodeAmount;
 	}
 
-	public void setTicketOrd_proCodeAmount(Double ticketOrd_proCodeAmount) {
-		this.ticketOrd_proCodeAmount = ticketOrd_proCodeAmount;
+	public void setTicketOrdProCodeAmount(Double ticketOrdProCodeAmount) {
+		this.ticketOrdProCodeAmount = ticketOrdProCodeAmount;
 	}
 
-	public Double getTicketOrd_actuallyAmount() {
-		return ticketOrd_actuallyAmount;
+	public Double getTicketOrdActuallyAmount() {
+		return ticketOrdActuallyAmount;
 	}
 
-	public void setTicketOrd_actuallyAmount(Double ticketOrd_actuallyAmount) {
-		this.ticketOrd_actuallyAmount = ticketOrd_actuallyAmount;
+	public void setTicketOrdActuallyAmount(Double ticketOrdActuallyAmount) {
+		this.ticketOrdActuallyAmount = ticketOrdActuallyAmount;
 	}
 
-	public Integer getTicketOrd_payStatus() {
-		return ticketOrd_payStatus;
+	public Integer getTicketOrdPayStatus() {
+		return ticketOrdPayStatus;
 	}
 
-	public void setTicketOrd_payStatus(Integer ticketOrd_payStatus) {
-		this.ticketOrd_payStatus = ticketOrd_payStatus;
+	public void setTicketOrdPayStatus(Integer ticketOrdPayStatus) {
+		this.ticketOrdPayStatus = ticketOrdPayStatus;
 	}
 
-	public Integer getMyProCode_id() {
-		return myProCode_id;
+	public Integer getMyProCodeId() {
+		return myProCodeId;
 	}
 
-	public void setMyProCode_id(Integer myProCode_id) {
-		this.myProCode_id = myProCode_id;
+	public void setMyProCodeId(Integer myProCodeId) {
+		this.myProCodeId = myProCodeId;
 	}
 
-	public String getTicketOrd_address() {
-		return ticketOrd_address;
+	public String getTicketOrdAddress() {
+		return ticketOrdAddress;
 	}
 
-	public void setTicketOrd_address(String ticketOrd_address) {
-		this.ticketOrd_address = ticketOrd_address;
+	public void setTicketOrdAddress(String ticketOrdAddress) {
+		this.ticketOrdAddress = ticketOrdAddress;
 	}
 
-	public Integer getSel_id() {
-		return sel_id;
+	public Integer getSelId() {
+		return selId;
 	}
 
-	public void setSel_id(Integer sel_id) {
-		this.sel_id = sel_id;
+	public void setSelId(Integer selId) {
+		this.selId = selId;
 	}
 
-	public String getTicketOrd_code() {
-		return ticketOrd_code;
+	public String getTicketOrdCode() {
+		return ticketOrdCode;
 	}
 
-	public void setTicketOrd_code(String ticketOrd_code) {
-		this.ticketOrd_code = ticketOrd_code;
+	public void setTicketOrdCode(String ticketOrdCode) {
+		this.ticketOrdCode = ticketOrdCode;
 	}
 
 	@Override
 	public String toString() {
-		return "TicketOrderVO [ticketOrd_id=" + ticketOrd_id + ", ticketOrd_time=" + ticketOrd_time + ", mem_id="
-				+ mem_id + ", ticketOrd_status=" + ticketOrd_status + ", ticketOrd_totalPrice=" + ticketOrd_totalPrice
-				+ ", ticketOrd_proCodeAmount=" + ticketOrd_proCodeAmount + ", ticketOrd_actuallyAmount="
-				+ ticketOrd_actuallyAmount + ", ticketOrd_payStatus=" + ticketOrd_payStatus + ", myProCode_id="
-				+ myProCode_id + ", ticketOrd_address=" + ticketOrd_address + ", sel_id=" + sel_id + ", ticketOrd_code="
-				+ ticketOrd_code + "]";
+		return "TicketOrderVO [ticketOrdId=" + ticketOrdId + ", ticketOrdTime=" + ticketOrdTime + ", memId=" + memId
+				+ ", ticketOrdStatus=" + ticketOrdStatus + ", ticketOrdTotalPrice=" + ticketOrdTotalPrice
+				+ ", ticketOrdProCodeAmount=" + ticketOrdProCodeAmount + ", ticketOrdActuallyAmount="
+				+ ticketOrdActuallyAmount + ", ticketOrdPayStatus=" + ticketOrdPayStatus + ", myProCodeId="
+				+ myProCodeId + ", ticketOrdAddress=" + ticketOrdAddress + ", selId=" + selId + ", ticketOrdCode="
+				+ ticketOrdCode + "]";
 	}
 
 }
