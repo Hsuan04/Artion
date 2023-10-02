@@ -37,5 +37,6 @@
   		<mapping class="com.tha103.artion.merch.model.MerchVO"/>
   		<mapping class="com.tha103.artion.promocode.model.PromocodeVO"/>
   		
+  		
 	</session-factory>
 </hibernate-configuration>
