@@ -7,6 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -17,31 +19,44 @@ public class ActivityCommentVO {
 	@Column(name = "actCom_id", updatable = false)
 	private Integer actComId;
 
-	@Column(name = "mem_id")
+	@ManyToOne
+	@JoinColumn(name = "mem_id", referencedColumnName = "mem_id")
 	private Integer memId;
-	@Column(name = "act_id")
+	
+	@ManyToOne
+	@JoinColumn(name = "act_id", referencedColumnName = "act_id")
 	private Integer actId;
+	
 	@Column(name="actCom_content")
 	private String actComContent;
+	
 	@Column(name="actCom_reportTimes")
 	private Integer actComReportTimes;
+	
 	@Column(name = "actCom_time")
 	private Timestamp actComTime;
+	
 	@Column(name="actCom_likeTimes")
 	private Integer actComLikeTimes;
+	
 	@Column(name="actCom_coverPicture", columnDefinition="longblob")
 	private byte[] actComCoverPicture;
+	
 	@Column(name="actCom_picture1", columnDefinition="longblob")
 	private byte[] actComPicture1;
+	
 	@Column(name="actCom_picture2", columnDefinition="longblob")
 	private byte[] actComPicture2;
+	
 	@Column(name="actCom_picture3", columnDefinition="longblob")
 	private byte[] actComPicture3;
+	
 	@Column(name="actCom_status", columnDefinition="boolean")
 	private Boolean actComStatus;
+	
 	public ActivityCommentVO() {
 		super();
-		// TODO Auto-generated constructor stub
+		
 	}
 	public ActivityCommentVO(Integer actComId, Integer memId, Integer actId, String actComContent,
 			Integer actComReportTimes, Timestamp actComTime, Integer actComLikeTimes, byte[] actComCoverPicture,

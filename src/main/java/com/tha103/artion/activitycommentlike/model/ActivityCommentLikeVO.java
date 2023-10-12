@@ -7,6 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -16,10 +18,12 @@ public class ActivityCommentLikeVO {
 	@GeneratedValue(strategy = GenerationType.IDENTITY) 
 	private Integer actComLikeId;
 
-	@Column(name="mem_id")
+	@ManyToOne
+	@JoinColumn(name = "mem_id", referencedColumnName = "mem_id")
 	private Integer memId;
 
-	@Column(name="act_id")
+	@ManyToOne
+	@JoinColumn(name = "act_id", referencedColumnName = "act_id")
 	private Integer actId;
 	
 	@Column(name="actComLike_status")

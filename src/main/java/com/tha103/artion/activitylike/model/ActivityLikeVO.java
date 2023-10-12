@@ -1,25 +1,22 @@
 package com.tha103.artion.activitylike.model;
 
 import java.sql.Timestamp;
-
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "ActivityLike")
 public class ActivityLikeVO {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY) 
+	@Column(name = "actLikeId", updatable = false)
 	private Integer actLikeId;
 
-	@Column(name="mem_id")
+	@ManyToOne
+	@JoinColumn(name = "mem_id", referencedColumnName = "mem_id")
 	private Integer memId;
 
-	@Column(name="act_id")
+	@ManyToOne
+	@JoinColumn(name = "act_id", referencedColumnName = "act_id")
 	private Integer actId;
 	
 	@Column(name="actLike_status")
@@ -30,16 +27,6 @@ public class ActivityLikeVO {
 
 	public ActivityLikeVO() {
 		super();
-	}
-
-	public ActivityLikeVO(Integer actLikeId, Integer memId, Integer actId, Boolean actLikeStatus,
-			Timestamp actLikeTime) {
-		super();
-		this.actLikeId = actLikeId;
-		this.memId = memId;
-		this.actId = actId;
-		this.actLikeStatus = actLikeStatus;
-		this.actLikeTime = actLikeTime;
 	}
 
 	public Integer getActLikeId() {
@@ -79,6 +66,16 @@ public class ActivityLikeVO {
 	}
 
 	public void setActLikeTime(Timestamp actLikeTime) {
+		this.actLikeTime = actLikeTime;
+	}
+	
+	public ActivityLikeVO(Integer actLikeId, Integer memId, Integer actId, Boolean actLikeStatus,
+			Timestamp actLikeTime) {
+		super();
+		this.actLikeId = actLikeId;
+		this.memId = memId;
+		this.actId = actId;
+		this.actLikeStatus = actLikeStatus;
 		this.actLikeTime = actLikeTime;
 	}
 
