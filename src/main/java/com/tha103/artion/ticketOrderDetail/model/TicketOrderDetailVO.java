@@ -1,11 +1,16 @@
-package com.tha103.artion.ticketorderdetail.model;
+package com.tha103.artion.ticketOrderDetail.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+
+import com.tha103.artion.activity.model.ActivityHibernateVO;
+import com.tha103.artion.ticketOrder.model.TicketOrderVO;
 
 @Entity
 @Table(name = "merchorder")
@@ -17,8 +22,9 @@ public class TicketOrderDetailVO {
 	@Column(name = "ticOrdDetail_id", updatable = false)
 	private Integer ticOrdDetailId;
 
-	@Column(name = "ticketOrd_id")
-	private Integer ticketOrdId;
+	@ManyToOne
+	@JoinColumn(name = "ticketOrd_id", referencedColumnName = "ticketOrd_id")
+	private TicketOrderVO ticketOrdId;
 
 	@Column(name = "ticketOrdDetail_quantity")
 	private Integer ticketOrdDetailQuantity;
@@ -26,16 +32,17 @@ public class TicketOrderDetailVO {
 	@Column(name = "ticOrdDetail_price")
 	private Double ticOrdDetailPrice;
 
-	@Column(name = "act_id")
-	private Integer actId;
+	@ManyToOne
+	@JoinColumn(name = "act_id", referencedColumnName = "act_id")
+	private ActivityHibernateVO actId;
 
 	public TicketOrderDetailVO() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public TicketOrderDetailVO(Integer ticOrdDetailId, Integer ticketOrdId, Integer ticketOrdDetailQuantity,
-			Double ticOrdDetailPrice, Integer actId) {
+	public TicketOrderDetailVO(Integer ticOrdDetailId, TicketOrderVO ticketOrdId, Integer ticketOrdDetailQuantity,
+			Double ticOrdDetailPrice, ActivityHibernateVO actId) {
 		super();
 		this.ticOrdDetailId = ticOrdDetailId;
 		this.ticketOrdId = ticketOrdId;
@@ -52,11 +59,11 @@ public class TicketOrderDetailVO {
 		this.ticOrdDetailId = ticOrdDetailId;
 	}
 
-	public Integer getTicketOrdId() {
+	public TicketOrderVO getTicketOrdId() {
 		return ticketOrdId;
 	}
 
-	public void setTicketOrdId(Integer ticketOrdId) {
+	public void setTicketOrdId(TicketOrderVO ticketOrdId) {
 		this.ticketOrdId = ticketOrdId;
 	}
 
@@ -76,11 +83,11 @@ public class TicketOrderDetailVO {
 		this.ticOrdDetailPrice = ticOrdDetailPrice;
 	}
 
-	public Integer getActId() {
+	public ActivityHibernateVO getActId() {
 		return actId;
 	}
 
-	public void setActId(Integer actId) {
+	public void setActId(ActivityHibernateVO actId) {
 		this.actId = actId;
 	}
 

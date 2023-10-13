@@ -1,13 +1,21 @@
-package com.tha103.artion.merchorder.model;
+package com.tha103.artion.merchOrder.model;
 
 import java.sql.Timestamp;
+import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import com.tha103.artion.member.model.MemberVO;
+import com.tha103.artion.merchOrderDetail.model.MerchOrderDetailVO;
 
 @Entity
 @Table(name = "merchorder")
@@ -19,13 +27,17 @@ public class MerchOrderVO {
 	@Column(name = "merOrder_id", updatable = false)
 	private Integer merOrderId;
 
-	@Column(name = "mem_id")
-	private Integer memId;
+	@OneToMany(mappedBy = "merchorder", cascade = CascadeType.ALL)
+	private Set<MerchOrderDetailVO> MerchOrderDetails;
+
+	@ManyToOne
+	@JoinColumn(name = "mem_id", referencedColumnName = "mem_id")
+	private MemberVO memId;
 
 	@Column(name = "merOrder_actuallyAmount")
 	private Double merOrderActuallyAmount;
 
-	@Column(name = "merOrder_time")
+	@Column(name = "merOrder_time", insertable = false, updatable = false)
 	private Timestamp merOrderTime;
 
 	@Column(name = "merOrder_payStatus")
@@ -45,7 +57,7 @@ public class MerchOrderVO {
 		// TODO Auto-generated constructor stub
 	}
 
-	public MerchOrderVO(Integer merOrderId, Integer memId, Double merOrderActuallyAmount, Timestamp merOrderTime,
+	public MerchOrderVO(Integer merOrderId, MemberVO memId, Double merOrderActuallyAmount, Timestamp merOrderTime,
 			Integer merOrderPayStatus, Integer merOrderStatus, String merOrderAddress, String merOrderCode) {
 		super();
 		this.merOrderId = merOrderId;
@@ -66,11 +78,19 @@ public class MerchOrderVO {
 		this.merOrderId = merOrderId;
 	}
 
-	public Integer getMemId() {
+	public Set<MerchOrderDetailVO> getMerchOrderDetails() {
+		return MerchOrderDetails;
+	}
+
+	public void setMerchOrderDetails(Set<MerchOrderDetailVO> merchOrderDetails) {
+		MerchOrderDetails = merchOrderDetails;
+	}
+
+	public MemberVO getMemId() {
 		return memId;
 	}
 
-	public void setMemId(Integer memId) {
+	public void setMemId(MemberVO memId) {
 		this.memId = memId;
 	}
 

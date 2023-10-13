@@ -1,16 +1,26 @@
-package com.tha103.artion.ticketorder.model;
+package com.tha103.artion.ticketOrder.model;
 
 import java.sql.Timestamp;
+import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.tha103.artion.member.model.MemberVO;
+import com.tha103.artion.myPromoCode.model.MyPromoCodeVO;
+import com.tha103.artion.seller.model.SellerHibernateVO;
+import com.tha103.artion.ticketOrderDetail.model.TicketOrderDetailVO;
+
 @Entity
-@Table(name = "merchorder")
+@Table(name = "ticketorder")
 // 配合 TestHQLWithParameter.java
 
 public class TicketOrderVO {
@@ -19,11 +29,15 @@ public class TicketOrderVO {
 	@Column(name = "ticketOrd_id", updatable = false)
 	private Integer ticketOrdId;
 
-	@Column(name = "ticketOrd_time")
+	@OneToMany(mappedBy = "ticketorder", cascade = CascadeType.ALL)
+	private Set<TicketOrderDetailVO> ticketOrderDetailsDetailVOs;
+
+	@Column(name = "ticketOrd_time", insertable = false, updatable = false)
 	private Timestamp ticketOrdTime;
 
-	@Column(name = "mem_id")
-	private Integer memId;
+	@ManyToOne
+	@JoinColumn(name = "mem_id", referencedColumnName = "mem_id")
+	private MemberVO memId;
 
 	@Column(name = "ticketOrd_status")
 	private Integer ticketOrdStatus;
@@ -40,14 +54,16 @@ public class TicketOrderVO {
 	@Column(name = "ticketOrd_payStatus")
 	private Integer ticketOrdPayStatus;
 
-	@Column(name = "myProCode_id")
-	private Integer myProCodeId;
+	@ManyToOne
+	@JoinColumn(name = "myProCode_id", referencedColumnName = "myProCode_id")
+	private MyPromoCodeVO myProCodeId;
 
 	@Column(name = "ticketOrd_address")
 	private String ticketOrdAddress;
 
-	@Column(name = "sel_id")
-	private Integer selId;
+	@ManyToOne
+	@JoinColumn(name = "sel_id", referencedColumnName = "sel_id")
+	private SellerHibernateVO selId;
 
 	@Column(name = "ticketOrd_code")
 	private String ticketOrdCode;
@@ -57,9 +73,9 @@ public class TicketOrderVO {
 		// TODO Auto-generated constructor stub
 	}
 
-	public TicketOrderVO(Integer ticketOrdId, Timestamp ticketOrdTime, Integer memId, Integer ticketOrdStatus,
+	public TicketOrderVO(Integer ticketOrdId, Timestamp ticketOrdTime, MemberVO memId, Integer ticketOrdStatus,
 			Double ticketOrdTotalPrice, Double ticketOrdProCodeAmount, Double ticketOrdActuallyAmount,
-			Integer ticketOrdPayStatus, Integer myProCodeId, String ticketOrdAddress, Integer selId,
+			Integer ticketOrdPayStatus, MyPromoCodeVO myProCodeId, String ticketOrdAddress, SellerHibernateVO selId,
 			String ticketOrdCode) {
 		super();
 		this.ticketOrdId = ticketOrdId;
@@ -84,6 +100,14 @@ public class TicketOrderVO {
 		this.ticketOrdId = ticketOrdId;
 	}
 
+	public Set<TicketOrderDetailVO> getTicketOrderDetailsDetailVOs() {
+		return ticketOrderDetailsDetailVOs;
+	}
+
+	public void setTicketOrderDetailsDetailVOs(Set<TicketOrderDetailVO> ticketOrderDetailsDetailVOs) {
+		this.ticketOrderDetailsDetailVOs = ticketOrderDetailsDetailVOs;
+	}
+
 	public Timestamp getTicketOrdTime() {
 		return ticketOrdTime;
 	}
@@ -92,11 +116,11 @@ public class TicketOrderVO {
 		this.ticketOrdTime = ticketOrdTime;
 	}
 
-	public Integer getMemId() {
+	public MemberVO getMemId() {
 		return memId;
 	}
 
-	public void setMemId(Integer memId) {
+	public void setMemId(MemberVO memId) {
 		this.memId = memId;
 	}
 
@@ -140,11 +164,11 @@ public class TicketOrderVO {
 		this.ticketOrdPayStatus = ticketOrdPayStatus;
 	}
 
-	public Integer getMyProCodeId() {
+	public MyPromoCodeVO getMyProCodeId() {
 		return myProCodeId;
 	}
 
-	public void setMyProCodeId(Integer myProCodeId) {
+	public void setMyProCodeId(MyPromoCodeVO myProCodeId) {
 		this.myProCodeId = myProCodeId;
 	}
 
@@ -156,11 +180,11 @@ public class TicketOrderVO {
 		this.ticketOrdAddress = ticketOrdAddress;
 	}
 
-	public Integer getSelId() {
+	public SellerHibernateVO getSelId() {
 		return selId;
 	}
 
-	public void setSelId(Integer selId) {
+	public void setSelId(SellerHibernateVO selId) {
 		this.selId = selId;
 	}
 
