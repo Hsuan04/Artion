@@ -1,52 +1,63 @@
-package com.tha103.artion.memberlevel.model;
+package com.tha103.artion.memberLevel.model;
 
+import java.util.Set;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.tha103.artion.member.model.MemberVO;
 
 @Entity
 @Table(name = "memberlevel")
-public class MemberlevelVO {
+public class MemberLevelVO {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "memLev_level", updatable = false)
+	@Column(name = "memLev_level")
 	private Integer memLevLevel;
-	@Column(name="memLev_levelName")
+	@Column(name = "memLev_levelName")
 	private String memLevLevelName;
-	@Column(name="memLev_minimunOrder")
+	@Column(name = "memLev_minimunOrder")
 	private Integer memLevMinimunOrder;
-	public MemberlevelVO() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-	public MemberlevelVO(Integer memLevLevel, String memLevLevelName, Integer memLevMinimunOrder) {
-		super();
-		this.memLevLevel = memLevLevel;
-		this.memLevLevelName = memLevLevelName;
-		this.memLevMinimunOrder = memLevMinimunOrder;
-	}
+
+	@OneToMany(mappedBy = "memberlevel", cascade = CascadeType.ALL)
+	private Set<MemberVO> members;
+
 	public Integer getMemLevLevel() {
 		return memLevLevel;
 	}
+
 	public void setMemLevLevel(Integer memLevLevel) {
 		this.memLevLevel = memLevLevel;
 	}
+
 	public String getMemLevLevelName() {
 		return memLevLevelName;
 	}
+
 	public void setMemLevLevelName(String memLevLevelName) {
 		this.memLevLevelName = memLevLevelName;
 	}
+
 	public Integer getMemLevMinimunOrder() {
 		return memLevMinimunOrder;
 	}
+
 	public void setMemLevMinimunOrder(Integer memLevMinimunOrder) {
 		this.memLevMinimunOrder = memLevMinimunOrder;
 	}
-	
-	
+
+	public Set<MemberVO> getMembers() {
+		return members;
+	}
+
+	public void setMembers(Set<MemberVO> members) {
+		this.members = members;
+	}
+
 }

@@ -5,57 +5,34 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.tha103.artion.member.model.MemberVO;
+import com.tha103.artion.activity.model.ActivityVO;
 
 @Entity
 @Table(name = "membercollection")
 public class MemberCollectionVO {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "memCol_serialNumber", updatable = false)	
+	@Column(name = "memCol_serialNumber")	
 	private Integer memColSerialNumber;
-	@Column(name = "mem_id")
-	private Integer memId;
-	@Column(name = "act_id")
-	private Integer actId;
+	
+	
+	@ManyToOne
+	@JoinColumn(name = "mem_id",referencedColumnName = "mem_id")
+	private MemberVO memId;
+	
+	@ManyToOne
+	@JoinColumn(name = "act_id",referencedColumnName = "act_id")
+	private ActivityVO  actId;
+	
+
 	@Column(name = "memCol_status",columnDefinition = "boolean")
 	private Boolean memColStatus;
-	public MemberCollectionVO() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-	public MemberCollectionVO(Integer memColSerialNumber, Integer memId, Integer actId, Boolean memColStatus) {
-		super();
-		this.memColSerialNumber = memColSerialNumber;
-		this.memId = memId;
-		this.actId = actId;
-		this.memColStatus = memColStatus;
-	}
-	public Integer getMemColSerialNumber() {
-		return memColSerialNumber;
-	}
-	public void setMemColSerialNumber(Integer memColSerialNumber) {
-		this.memColSerialNumber = memColSerialNumber;
-	}
-	public Integer getMemId() {
-		return memId;
-	}
-	public void setMemId(Integer memId) {
-		this.memId = memId;
-	}
-	public Integer getActId() {
-		return actId;
-	}
-	public void setActId(Integer actId) {
-		this.actId = actId;
-	}
-	public Boolean getMemColStatus() {
-		return memColStatus;
-	}
-	public void setMemColStatus(Boolean memColStatus) {
-		this.memColStatus = memColStatus;
-	}
 	
 	
 }
