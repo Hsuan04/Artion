@@ -1,7 +1,9 @@
 package com.tha103.artion.activityComment.model;
 
 import java.sql.Timestamp;
+import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -9,7 +11,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import com.tha103.artion.activityCommentLike.model.ActivityCommentLikeVO;
 
 @Entity
 @Table(name = "activitycomment")
@@ -18,7 +23,10 @@ public class ActivityCommentVO {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "actCom_id", updatable = false)
 	private Integer actComId;
-
+	
+	@OneToMany(mappedBy = "activitycomment", cascade = CascadeType.ALL)
+	private Set<ActivityCommentLikeVO> activityCommentLikes;
+	
 	@ManyToOne
 	@JoinColumn(name = "mem_id", referencedColumnName = "mem_id")
 	private Integer memId;
@@ -33,7 +41,7 @@ public class ActivityCommentVO {
 	@Column(name="actCom_reportTimes")
 	private Integer actComReportTimes;
 	
-	@Column(name = "actCom_time")
+	@Column(name = "actCom_time",insertable=false)
 	private Timestamp actComTime;
 	
 	@Column(name="actCom_likeTimes")
