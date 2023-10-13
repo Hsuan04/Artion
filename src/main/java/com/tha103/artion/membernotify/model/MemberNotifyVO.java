@@ -15,7 +15,8 @@ public class MemberNotifyVO {
 	@Column(name = "memberNot_serialNumber", updatable = false)
 	private Integer memberNotSerialNumber;
 	
-	@Column(name = "mem_id")
+	@ManyToOne
+	@JoinColumn(name = "mem_id", referencedColumnName = "mem_id")
 	private Integer memId;
 	
 	@Column(name = "memberNot_readStatus")
