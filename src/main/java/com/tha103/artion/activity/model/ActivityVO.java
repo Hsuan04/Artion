@@ -158,7 +158,7 @@ public class ActivityVO {
 		@Column(name = "admId")
 		private Integer admId;
 		
-		@Column(name = "actLastModifiedTime")
+		@Column(name = "actLastModifiedTime", insertable = false, updatable = false)
 		private Timestamp actLastModifiedTime;
 		
 		@Column(name = "actResultContent")

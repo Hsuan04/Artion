@@ -43,7 +43,7 @@ public class SellerNotificationVO {
 	@Column(name = "selNot_content")
 	private String selNotContent;
 
-	@Column(name = "selNot_receiveDateTime")
+	@Column(name = "selNot_receiveDateTime", insertable = false, updatable = false)
 	private Timestamp selNotReceiveDateTime;
 
 	public Integer getSelNotSerialNumber() {
