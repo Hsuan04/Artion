@@ -37,10 +37,10 @@ public class AdministratorVO {
 	@Column(name = "adm_mobile")
 	private String admMobile;
 	
-	@Column(name = "adm_addTime")
+	@Column(name = "adm_addTime", insertable = false , updatable = false)
 	private Timestamp admAddTime;
 	
-	@Column(name = "adm_lastModifiedTime")
+	@Column(name = "adm_lastModifiedTime", insertable = false , updatable = false)
 	private Timestamp admLastModifiedTime;
 	
 	@Column(name = "adm_profilePhoto", columnDefinition = "longblob")
