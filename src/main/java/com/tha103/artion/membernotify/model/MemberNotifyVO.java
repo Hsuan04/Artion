@@ -7,6 +7,7 @@ import java.sql.Timestamp;
 import javax.persistence.*;
 
 
+
 @Entity
 @Table(name="membernotify")
 public class MemberNotifyVO {
