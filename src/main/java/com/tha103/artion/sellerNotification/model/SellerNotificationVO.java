@@ -1,4 +1,4 @@
-package com.tha103.artion.sellernotification.model;
+package com.tha103.artion.sellerNotification.model;
 
 import java.sql.Timestamp;
 
@@ -7,7 +7,11 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+
+import com.tha103.artion.seller.model.SellerVO;
 
 @Entity
 @Table(name = "sellernotification")
@@ -18,9 +22,18 @@ public class SellerNotificationVO {
 	@Column(name = "selNot_serialNumber")
 	private Integer selNotSerialNumber;
 
-	@Column(name = "sel_id")
-	private Integer selId;
-
+	@ManyToOne
+	@JoinColumn(name = "sel_id", referencedColumnName = "sel_id")
+	private SellerVO seller;
+	
+	public SellerVO getSeller() {
+		return seller;
+	}
+	
+	public void setSeller(SellerVO seller) {
+		this.seller = seller;
+	}
+	
 	@Column(name = "selNot_readStatus", columnDefinition = "tinyint")
 	private boolean selNotReadStatus;
 
@@ -30,7 +43,7 @@ public class SellerNotificationVO {
 	@Column(name = "selNot_content")
 	private String selNotContent;
 
-	@Column(name = "selNot_receiveDateTime")
+	@Column(name = "selNot_receiveDateTime", insertable = false, updatable = false)
 	private Timestamp selNotReceiveDateTime;
 
 	public Integer getSelNotSerialNumber() {
@@ -41,13 +54,13 @@ public class SellerNotificationVO {
 		this.selNotSerialNumber = selNotSerialNumber;
 	}
 
-	public Integer getSelId() {
-		return selId;
-	}
-
-	public void setSelId(Integer selId) {
-		this.selId = selId;
-	}
+//	public Integer getSelId() {
+//		return selId;
+//	}
+//
+//	public void setSelId(Integer selId) {
+//		this.selId = selId;
+//	}
 
 	public boolean isSelNotReadStatus() {
 		return selNotReadStatus;
@@ -61,37 +74,25 @@ public class SellerNotificationVO {
 		return selNotExistStatus;
 	}
 
-
-
 	public void setSelNotExistStatus(boolean selNotExistStatus) {
 		this.selNotExistStatus = selNotExistStatus;
 	}
-
-
 
 	public String getSelNotContent() {
 		return selNotContent;
 	}
 
-
-
 	public void setSelNotContent(String selNotContent) {
 		this.selNotContent = selNotContent;
 	}
-
-
 
 	public Timestamp getSelNotReceiveDateTime() {
 		return selNotReceiveDateTime;
 	}
 
-
-
 	public void setSelNotReceiveDateTime(Timestamp selNotReceiveDateTime) {
 		this.selNotReceiveDateTime = selNotReceiveDateTime;
 	}
-
-
 
 	public SellerNotificationVO() {
 		super();

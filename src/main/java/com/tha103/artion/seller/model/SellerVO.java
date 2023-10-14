@@ -11,10 +11,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-
 import com.tha103.artion.activity.model.ActivityVO;
-import com.tha103.artion.sellernNotification.model.SellerNotificationVO;
-
+import com.tha103.artion.sellerNotification.model.SellerNotificationVO;
 
 
 @Entity
