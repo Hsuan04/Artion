@@ -12,7 +12,7 @@ import com.tha103.artion.activityCommentLike.model.ActivityCommentLikeVO;
 import com.tha103.artion.activityLike.model.ActivityLikeVO;
 import com.tha103.artion.memberCollection.model.MemberCollectionVO;
 import com.tha103.artion.memberLevel.model.MemberLevelVO;
-import com.tha103.artion.membernotify.model.MemberNotifyVO;
+import com.tha103.artion.memberNotify.model.MemberNotifyVO;
 import com.tha103.artion.merchOrder.model.MerchOrderVO;
 import com.tha103.artion.myPromoCode.model.MyPromoCodeVO;
 import com.tha103.artion.ticketOrder.model.TicketOrderVO;
