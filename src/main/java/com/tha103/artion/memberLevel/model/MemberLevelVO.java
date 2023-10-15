@@ -11,22 +11,44 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.google.gson.annotations.Expose;
 import com.tha103.artion.member.model.MemberVO;
 
 @Entity
 @Table(name = "memberlevel")
 public class MemberLevelVO {
+	@Expose
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "memLev_level")
 	private Integer memLevLevel;
+	
+	@Expose
 	@Column(name = "memLev_levelName")
 	private String memLevLevelName;
+	
+	@Expose
 	@Column(name = "memLev_minimunOrder")
 	private Integer memLevMinimunOrder;
 
+//-----------------------以下為OneToMany-----------------------
+	//會員等級(pk)>會員(fk)
+	@Expose
 	@OneToMany(mappedBy = "memberlevel", cascade = CascadeType.ALL)
 	private Set<MemberVO> members;
+//-------------------------------------------------------------
+	public MemberLevelVO() {
+		super();
+	}
+
+	public MemberLevelVO(Integer memLevLevel, String memLevLevelName, Integer memLevMinimunOrder,
+			Set<MemberVO> members) {
+		super();
+		this.memLevLevel = memLevLevel;
+		this.memLevLevelName = memLevLevelName;
+		this.memLevMinimunOrder = memLevMinimunOrder;
+		this.members = members;
+	}
 
 	public Integer getMemLevLevel() {
 		return memLevLevel;
@@ -59,5 +81,12 @@ public class MemberLevelVO {
 	public void setMembers(Set<MemberVO> members) {
 		this.members = members;
 	}
+
+	@Override
+	public String toString() {
+		return "MemberLevelVO [memLevLevel=" + memLevLevel + ", memLevLevelName=" + memLevLevelName
+				+ ", memLevMinimunOrder=" + memLevMinimunOrder + "]";
+	}
+	
 
 }

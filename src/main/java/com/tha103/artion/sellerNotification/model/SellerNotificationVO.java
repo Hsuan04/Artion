@@ -11,40 +11,55 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.google.gson.annotations.Expose;
 import com.tha103.artion.seller.model.SellerVO;
 
 @Entity
 @Table(name = "sellernotification")
 
 public class SellerNotificationVO {
+	@Expose
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "selNot_serialNumber")
 	private Integer selNotSerialNumber;
 
+	// 廠商通知(fk)>廠商(pk)
 	@ManyToOne
 	@JoinColumn(name = "sel_id", referencedColumnName = "sel_id")
 	private SellerVO seller;
-	
-	public SellerVO getSeller() {
-		return seller;
-	}
-	
-	public void setSeller(SellerVO seller) {
-		this.seller = seller;
-	}
-	
+
+	@Expose
 	@Column(name = "selNot_readStatus", columnDefinition = "tinyint")
 	private boolean selNotReadStatus;
 
+	@Expose
 	@Column(name = "selNot_existStatus", columnDefinition = "tinyint")
 	private boolean selNotExistStatus;
 
+	@Expose
 	@Column(name = "selNot_content")
 	private String selNotContent;
 
+	@Expose
 	@Column(name = "selNot_receiveDateTime", insertable = false, updatable = false)
 	private Timestamp selNotReceiveDateTime;
+	
+//-------------------------------------------------------------
+	public SellerNotificationVO() {
+		super();
+	}
+
+	public SellerNotificationVO(Integer selNotSerialNumber, SellerVO seller, boolean selNotReadStatus,
+			boolean selNotExistStatus, String selNotContent, Timestamp selNotReceiveDateTime) {
+		super();
+		this.selNotSerialNumber = selNotSerialNumber;
+		this.seller = seller;
+		this.selNotReadStatus = selNotReadStatus;
+		this.selNotExistStatus = selNotExistStatus;
+		this.selNotContent = selNotContent;
+		this.selNotReceiveDateTime = selNotReceiveDateTime;
+	}
 
 	public Integer getSelNotSerialNumber() {
 		return selNotSerialNumber;
@@ -54,13 +69,13 @@ public class SellerNotificationVO {
 		this.selNotSerialNumber = selNotSerialNumber;
 	}
 
-//	public Integer getSelId() {
-//		return selId;
-//	}
-//
-//	public void setSelId(Integer selId) {
-//		this.selId = selId;
-//	}
+	public SellerVO getSeller() {
+		return seller;
+	}
+
+	public void setSeller(SellerVO seller) {
+		this.seller = seller;
+	}
 
 	public boolean isSelNotReadStatus() {
 		return selNotReadStatus;
@@ -94,9 +109,11 @@ public class SellerNotificationVO {
 		this.selNotReceiveDateTime = selNotReceiveDateTime;
 	}
 
-	public SellerNotificationVO() {
-		super();
-		// TODO Auto-generated constructor stub
+	@Override
+	public String toString() {
+		return "SellerNotificationVO [selNotSerialNumber=" + selNotSerialNumber + ", selNotReadStatus="
+				+ selNotReadStatus + ", selNotExistStatus=" + selNotExistStatus + ", selNotContent=" + selNotContent
+				+ ", selNotReceiveDateTime=" + selNotReceiveDateTime + "]";
 	}
-
+	
 }

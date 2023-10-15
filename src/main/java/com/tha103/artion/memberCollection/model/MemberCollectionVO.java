@@ -11,28 +11,80 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import com.tha103.artion.member.model.MemberVO;
+import com.google.gson.annotations.Expose;
 import com.tha103.artion.activity.model.ActivityVO;
 
 @Entity
 @Table(name = "membercollection")
 public class MemberCollectionVO {
+	@Expose
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "memCol_serialNumber")	
 	private Integer memColSerialNumber;
 	
-	
+	//會員收藏(fk)>會員(pk)
 	@ManyToOne
 	@JoinColumn(name = "mem_id",referencedColumnName = "mem_id")
-	private MemberVO memId;
+	private MemberVO member;
 	
+	//會員收藏(fk)>活動(pk)
 	@ManyToOne
 	@JoinColumn(name = "act_id",referencedColumnName = "act_id")
-	private ActivityVO  actId;
+	private ActivityVO activity;
 	
-
+	@Expose
 	@Column(name = "memCol_status",columnDefinition = "boolean")
 	private Boolean memColStatus;
-	
+
+//-------------------------------------------------------------
+	public MemberCollectionVO() {
+		super();
+	}
+
+	public MemberCollectionVO(Integer memColSerialNumber, MemberVO member, ActivityVO activity, Boolean memColStatus) {
+		super();
+		this.memColSerialNumber = memColSerialNumber;
+		this.member = member;
+		this.activity = activity;
+		this.memColStatus = memColStatus;
+	}
+
+	public Integer getMemColSerialNumber() {
+		return memColSerialNumber;
+	}
+
+	public void setMemColSerialNumber(Integer memColSerialNumber) {
+		this.memColSerialNumber = memColSerialNumber;
+	}
+
+	public MemberVO getMember() {
+		return member;
+	}
+
+	public void setMember(MemberVO member) {
+		this.member = member;
+	}
+
+	public ActivityVO getActivity() {
+		return activity;
+	}
+
+	public void setActivity(ActivityVO activity) {
+		this.activity = activity;
+	}
+
+	public Boolean getMemColStatus() {
+		return memColStatus;
+	}
+
+	public void setMemColStatus(Boolean memColStatus) {
+		this.memColStatus = memColStatus;
+	}
+
+	@Override
+	public String toString() {
+		return "MemberCollectionVO [memColSerialNumber=" + memColSerialNumber + ", memColStatus=" + memColStatus + "]";
+	}
 	
 }

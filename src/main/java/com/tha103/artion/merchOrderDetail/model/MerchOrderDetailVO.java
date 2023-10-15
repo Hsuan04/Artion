@@ -9,6 +9,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.google.gson.annotations.Expose;
 import com.tha103.artion.merch.model.MerchVO;
 import com.tha103.artion.merchOrder.model.MerchOrderVO;
 
@@ -17,36 +18,41 @@ import com.tha103.artion.merchOrder.model.MerchOrderVO;
 // 配合 TestHQLWithParameter.java
 
 public class MerchOrderDetailVO {
+	@Expose
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "merchOrdDetail_id", updatable = false)
 	private Integer merchOrdDetailId;
 
+	//周邊商品訂單明細(fk)>周邊商品(pk)
 	@ManyToOne
 	@JoinColumn(name = "merOrder_id", referencedColumnName = "merOrder_id")
-	private MerchOrderVO merOrderId;
+	private MerchOrderVO merchorder;
 
+	//周邊商品訂單明細(fk)>周邊商品(pk)
 	@ManyToOne
 	@JoinColumn(name = "merch_id", referencedColumnName = "merch_id")
-	private MerchVO merchId;
+	private MerchVO merch;
 
+	@Expose
 	@Column(name = "merOrderDetail_quantity")
 	private Integer merOrderDetailQuantity;
 
+	@Expose
 	@Column(name = "merOrderDetail_price")
 	private Integer merOrderDetailPrice;
 
+//-------------------------------------------------------------
 	public MerchOrderDetailVO() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
-	public MerchOrderDetailVO(Integer merchOrdDetailId, MerchOrderVO merOrderId, MerchVO merchId,
+	public MerchOrderDetailVO(Integer merchOrdDetailId, MerchOrderVO merchorder, MerchVO merch,
 			Integer merOrderDetailQuantity, Integer merOrderDetailPrice) {
 		super();
 		this.merchOrdDetailId = merchOrdDetailId;
-		this.merOrderId = merOrderId;
-		this.merchId = merchId;
+		this.merchorder = merchorder;
+		this.merch = merch;
 		this.merOrderDetailQuantity = merOrderDetailQuantity;
 		this.merOrderDetailPrice = merOrderDetailPrice;
 	}
@@ -59,20 +65,20 @@ public class MerchOrderDetailVO {
 		this.merchOrdDetailId = merchOrdDetailId;
 	}
 
-	public MerchOrderVO getMerOrderId() {
-		return merOrderId;
+	public MerchOrderVO getMerchorder() {
+		return merchorder;
 	}
 
-	public void setMerOrderId(MerchOrderVO merOrderId) {
-		this.merOrderId = merOrderId;
+	public void setMerchorder(MerchOrderVO merchorder) {
+		this.merchorder = merchorder;
 	}
 
-	public MerchVO getMerchId() {
-		return merchId;
+	public MerchVO getMerch() {
+		return merch;
 	}
 
-	public void setMerchId(MerchVO merchId) {
-		this.merchId = merchId;
+	public void setMerch(MerchVO merch) {
+		this.merch = merch;
 	}
 
 	public Integer getMerOrderDetailQuantity() {
@@ -93,9 +99,9 @@ public class MerchOrderDetailVO {
 
 	@Override
 	public String toString() {
-		return "MerchOrderDetailVO [merchOrdDetailId=" + merchOrdDetailId + ", merOrderId=" + merOrderId + ", merchId="
-				+ merchId + ", merOrderDetailQuantity=" + merOrderDetailQuantity + ", merOrderDetailPrice="
-				+ merOrderDetailPrice + "]";
+		return "MerchOrderDetailVO [merchOrdDetailId=" + merchOrdDetailId + ", merOrderDetailQuantity="
+				+ merOrderDetailQuantity + ", merOrderDetailPrice=" + merOrderDetailPrice + "]";
 	}
+
 
 }
