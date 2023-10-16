@@ -1,43 +1,50 @@
-package com.tha103.artion.activitylike.model;
+package com.tha103.artion.activityLike.model;
 
 import java.sql.Timestamp;
+import javax.persistence.*;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import com.google.gson.annotations.Expose;
+import com.tha103.artion.activity.model.ActivityVO;
+import com.tha103.artion.member.model.MemberVO;
 
 @Entity
-@Table(name = "ActivityLike")
+@Table(name = "activitylike")
 public class ActivityLikeVO {
+	@Expose
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY) 
+	@Column(name = "actLike_id", updatable = false)
 	private Integer actLikeId;
-
-	@Column(name="mem_id")
-	private Integer memId;
-
-	@Column(name="act_id")
-	private Integer actId;
 	
+	//留言按讚(fk)>會員(pk)
+	@ManyToOne
+	@JoinColumn(name = "mem_id", referencedColumnName = "mem_id")
+	private MemberVO member;
+	
+	//留言按讚(fk)>活動(pk)
+	@ManyToOne
+	@JoinColumn(name = "act_id", referencedColumnName = "act_id")
+	private ActivityVO activity;
+	
+	@Expose
 	@Column(name="actLike_status")
 	private Boolean actLikeStatus;
 	
-	@Column(name="actLike_time")
+	@Expose
+	@Column(name="actLike_time",insertable=false)
 	private Timestamp actLikeTime;
 
+//-------------------------------------------------------------
 	public ActivityLikeVO() {
 		super();
 	}
 
-	public ActivityLikeVO(Integer actLikeId, Integer memId, Integer actId, Boolean actLikeStatus,
+	public ActivityLikeVO(Integer actLikeId, MemberVO member, ActivityVO activity, Boolean actLikeStatus,
 			Timestamp actLikeTime) {
 		super();
 		this.actLikeId = actLikeId;
-		this.memId = memId;
-		this.actId = actId;
+		this.member = member;
+		this.activity = activity;
 		this.actLikeStatus = actLikeStatus;
 		this.actLikeTime = actLikeTime;
 	}
@@ -50,20 +57,20 @@ public class ActivityLikeVO {
 		this.actLikeId = actLikeId;
 	}
 
-	public Integer getMemId() {
-		return memId;
+	public MemberVO getMember() {
+		return member;
 	}
 
-	public void setMemId(Integer memId) {
-		this.memId = memId;
+	public void setMember(MemberVO member) {
+		this.member = member;
 	}
 
-	public Integer getActId() {
-		return actId;
+	public ActivityVO getActivity() {
+		return activity;
 	}
 
-	public void setActId(Integer actId) {
-		this.actId = actId;
+	public void setActivity(ActivityVO activity) {
+		this.activity = activity;
 	}
 
 	public Boolean getActLikeStatus() {
@@ -80,6 +87,12 @@ public class ActivityLikeVO {
 
 	public void setActLikeTime(Timestamp actLikeTime) {
 		this.actLikeTime = actLikeTime;
+	}
+
+	@Override
+	public String toString() {
+		return "ActivityLikeVO [actLikeId=" + actLikeId + ", actLikeStatus=" + actLikeStatus + ", actLikeTime="
+				+ actLikeTime + "]";
 	}
 
 }
