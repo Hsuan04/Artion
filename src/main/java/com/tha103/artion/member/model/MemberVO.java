@@ -10,6 +10,7 @@ import com.google.gson.annotations.Expose;
 import com.tha103.artion.activityComment.model.ActivityCommentVO;
 import com.tha103.artion.activityCommentLike.model.ActivityCommentLikeVO;
 import com.tha103.artion.activityLike.model.ActivityLikeVO;
+import com.tha103.artion.commentReport.model.CommentReportVO;
 import com.tha103.artion.memberCollection.model.MemberCollectionVO;
 import com.tha103.artion.memberLevel.model.MemberLevelVO;
 import com.tha103.artion.memberNotify.model.MemberNotifyVO;
@@ -122,217 +123,328 @@ public class MemberVO {
 	@OneToMany(mappedBy = "member", cascade = CascadeType.ALL)
 	private Set<ActivityCommentLikeVO>actComLikes;
 
+	//會員(pk)>會員檢舉(fk)
+		@Expose
+		@OneToMany(mappedBy = "member", cascade = CascadeType.ALL)
+		private Set<CommentReportVO>ComReps;
+	
 //-------------------------------------------------------------
-	public MemberVO() {
-		super();
-	}
+		public MemberVO() {
+			super();
+			// TODO Auto-generated constructor stub
+		}
+
+	
 
 	public MemberVO(Integer memId, String memName, String memNickname, String memAccount, String memPassword,
-			String memGender, Date memBirthday, String memMobile, String memAddress, Date memRegisterdTime,
-			Date memLastModifiedTime, MemberLevelVO memLevLevel, byte[] memProfilePhoto, Integer memTotalCost,
-			Set<MyPromoCodeVO> mypromocodes, Set<MemberNotifyVO> membnots, Set<MerchOrderVO> merOrders,
-			Set<TicketOrderVO> ticOrders, Set<ActivityCommentVO> actComs, Set<ActivityLikeVO> actLikes,
-			Set<MemberCollectionVO> memCols, Set<ActivityCommentLikeVO> actComLikes) {
-		super();
-		this.memId = memId;
-		this.memName = memName;
-		this.memNickname = memNickname;
-		this.memAccount = memAccount;
-		this.memPassword = memPassword;
-		this.memGender = memGender;
-		this.memBirthday = memBirthday;
-		this.memMobile = memMobile;
-		this.memAddress = memAddress;
-		this.memRegisterdTime = memRegisterdTime;
-		this.memLastModifiedTime = memLastModifiedTime;
-		this.memLevLevel = memLevLevel;
-		this.memProfilePhoto = memProfilePhoto;
-		this.memTotalCost = memTotalCost;
-		this.mypromocodes = mypromocodes;
-		this.membnots = membnots;
-		this.merOrders = merOrders;
-		this.ticOrders = ticOrders;
-		this.actComs = actComs;
-		this.actLikes = actLikes;
-		this.memCols = memCols;
-		this.actComLikes = actComLikes;
-	}
+		String memGender, Date memBirthday, String memMobile, String memAddress, Date memRegisterdTime,
+		Date memLastModifiedTime, MemberLevelVO memLevLevel, byte[] memProfilePhoto, Integer memTotalCost,
+		Set<MyPromoCodeVO> mypromocodes, Set<MemberNotifyVO> membnots, Set<MerchOrderVO> merOrders,
+		Set<TicketOrderVO> ticOrders, Set<ActivityCommentVO> actComs, Set<ActivityLikeVO> actLikes,
+		Set<MemberCollectionVO> memCols, Set<ActivityCommentLikeVO> actComLikes, Set<CommentReportVO> comReps) {
+	super();
+	this.memId = memId;
+	this.memName = memName;
+	this.memNickname = memNickname;
+	this.memAccount = memAccount;
+	this.memPassword = memPassword;
+	this.memGender = memGender;
+	this.memBirthday = memBirthday;
+	this.memMobile = memMobile;
+	this.memAddress = memAddress;
+	this.memRegisterdTime = memRegisterdTime;
+	this.memLastModifiedTime = memLastModifiedTime;
+	this.memLevLevel = memLevLevel;
+	this.memProfilePhoto = memProfilePhoto;
+	this.memTotalCost = memTotalCost;
+	this.mypromocodes = mypromocodes;
+	this.membnots = membnots;
+	this.merOrders = merOrders;
+	this.ticOrders = ticOrders;
+	this.actComs = actComs;
+	this.actLikes = actLikes;
+	this.memCols = memCols;
+	this.actComLikes = actComLikes;
+	ComReps = comReps;
+}
+
+
 
 	public Integer getMemId() {
 		return memId;
 	}
 
+
+
 	public void setMemId(Integer memId) {
 		this.memId = memId;
 	}
+
+
 
 	public String getMemName() {
 		return memName;
 	}
 
+
+
 	public void setMemName(String memName) {
 		this.memName = memName;
 	}
+
+
 
 	public String getMemNickname() {
 		return memNickname;
 	}
 
+
+
 	public void setMemNickname(String memNickname) {
 		this.memNickname = memNickname;
 	}
+
+
 
 	public String getMemAccount() {
 		return memAccount;
 	}
 
+
+
 	public void setMemAccount(String memAccount) {
 		this.memAccount = memAccount;
 	}
+
+
 
 	public String getMemPassword() {
 		return memPassword;
 	}
 
+
+
 	public void setMemPassword(String memPassword) {
 		this.memPassword = memPassword;
 	}
+
+
 
 	public String getMemGender() {
 		return memGender;
 	}
 
+
+
 	public void setMemGender(String memGender) {
 		this.memGender = memGender;
 	}
+
+
 
 	public Date getMemBirthday() {
 		return memBirthday;
 	}
 
+
+
 	public void setMemBirthday(Date memBirthday) {
 		this.memBirthday = memBirthday;
 	}
+
+
 
 	public String getMemMobile() {
 		return memMobile;
 	}
 
+
+
 	public void setMemMobile(String memMobile) {
 		this.memMobile = memMobile;
 	}
+
+
 
 	public String getMemAddress() {
 		return memAddress;
 	}
 
+
+
 	public void setMemAddress(String memAddress) {
 		this.memAddress = memAddress;
 	}
+
+
 
 	public Date getMemRegisterdTime() {
 		return memRegisterdTime;
 	}
 
+
+
 	public void setMemRegisterdTime(Date memRegisterdTime) {
 		this.memRegisterdTime = memRegisterdTime;
 	}
+
+
 
 	public Date getMemLastModifiedTime() {
 		return memLastModifiedTime;
 	}
 
+
+
 	public void setMemLastModifiedTime(Date memLastModifiedTime) {
 		this.memLastModifiedTime = memLastModifiedTime;
 	}
+
+
 
 	public MemberLevelVO getMemLevLevel() {
 		return memLevLevel;
 	}
 
+
+
 	public void setMemLevLevel(MemberLevelVO memLevLevel) {
 		this.memLevLevel = memLevLevel;
 	}
+
+
 
 	public byte[] getMemProfilePhoto() {
 		return memProfilePhoto;
 	}
 
+
+
 	public void setMemProfilePhoto(byte[] memProfilePhoto) {
 		this.memProfilePhoto = memProfilePhoto;
 	}
+
+
 
 	public Integer getMemTotalCost() {
 		return memTotalCost;
 	}
 
+
+
 	public void setMemTotalCost(Integer memTotalCost) {
 		this.memTotalCost = memTotalCost;
 	}
+
+
 
 	public Set<MyPromoCodeVO> getMypromocodes() {
 		return mypromocodes;
 	}
 
+
+
 	public void setMypromocodes(Set<MyPromoCodeVO> mypromocodes) {
 		this.mypromocodes = mypromocodes;
 	}
+
+
 
 	public Set<MemberNotifyVO> getMembnots() {
 		return membnots;
 	}
 
+
+
 	public void setMembnots(Set<MemberNotifyVO> membnots) {
 		this.membnots = membnots;
 	}
+
+
 
 	public Set<MerchOrderVO> getMerOrders() {
 		return merOrders;
 	}
 
+
+
 	public void setMerOrders(Set<MerchOrderVO> merOrders) {
 		this.merOrders = merOrders;
 	}
+
+
 
 	public Set<TicketOrderVO> getTicOrders() {
 		return ticOrders;
 	}
 
+
+
 	public void setTicOrders(Set<TicketOrderVO> ticOrders) {
 		this.ticOrders = ticOrders;
 	}
+
+
 
 	public Set<ActivityCommentVO> getActComs() {
 		return actComs;
 	}
 
+
+
 	public void setActComs(Set<ActivityCommentVO> actComs) {
 		this.actComs = actComs;
 	}
+
+
 
 	public Set<ActivityLikeVO> getActLikes() {
 		return actLikes;
 	}
 
+
+
 	public void setActLikes(Set<ActivityLikeVO> actLikes) {
 		this.actLikes = actLikes;
 	}
+
+
 
 	public Set<MemberCollectionVO> getMemCols() {
 		return memCols;
 	}
 
+
+
 	public void setMemCols(Set<MemberCollectionVO> memCols) {
 		this.memCols = memCols;
 	}
+
+
 
 	public Set<ActivityCommentLikeVO> getActComLikes() {
 		return actComLikes;
 	}
 
+
+
 	public void setActComLikes(Set<ActivityCommentLikeVO> actComLikes) {
 		this.actComLikes = actComLikes;
 	}
+
+
+
+	public Set<CommentReportVO> getComReps() {
+		return ComReps;
+	}
+
+
+
+	public void setComReps(Set<CommentReportVO> comReps) {
+		ComReps = comReps;
+	}
+
+
 
 	@Override
 	public String toString() {
@@ -342,5 +454,7 @@ public class MemberVO {
 				+ memRegisterdTime + ", memLastModifiedTime=" + memLastModifiedTime + ", memProfilePhoto="
 				+ Arrays.toString(memProfilePhoto) + ", memTotalCost=" + memTotalCost + "]";
 	}
+
+
 	
 }
