@@ -1,13 +1,17 @@
-package com.tha103.artion.membernotify.controller;
+package com.tha103.artion.memberNotify.controller;
 
-import java.io.*;
-import java.sql.Timestamp;
-import java.util.*;
+import java.io.IOException;
+import java.util.LinkedList;
+import java.util.List;
 
-import javax.servlet.*;
-import javax.servlet.http.*;
-import com.membernotify.model.*;
-import com.membernotify.model.MemberNotifyVO;
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import com.tha103.artion.memberNotify.model.MemberNotifyService;
+import com.tha103.artion.memberNotify.model.MemberNotifyVO;
 
 
 public class MemberNotifyServlet extends HttpServlet {

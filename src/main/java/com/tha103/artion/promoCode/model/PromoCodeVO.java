@@ -1,16 +1,23 @@
 package com.tha103.artion.promoCode.model;
 
 import java.sql.Date;
-import java.util.Objects;
 import java.util.Set;
 
-import javax.persistence.*;
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
 import com.google.gson.annotations.Expose;
 import com.tha103.artion.administrator.model.AdministratorVO;
 import com.tha103.artion.memberLevel.model.MemberLevelVO;
 import com.tha103.artion.myPromoCode.model.MyPromoCodeVO;
-import com.tha103.artion.ticketOrder.model.TicketOrderVO;
  
 
 

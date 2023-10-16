@@ -1,6 +1,6 @@
-package com.tha103.artion.membernotify.model;
+package com.tha103.artion.memberNotify.model;
 
-import java.util.*;
+import java.util.List;
 
 public interface MemberNotifyDAO_interface {
           public void insert(MemberNotifyVO memberNotifyVO);
