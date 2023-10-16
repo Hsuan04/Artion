@@ -17,6 +17,7 @@ import com.tha103.artion.merchOrder.model.MerchOrderVO;
 @Table(name = "merchorderdetail")
 // 配合 TestHQLWithParameter.java
 
+
 public class MerchOrderDetailVO {
 	@Expose
 	@Id

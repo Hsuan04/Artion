@@ -6,6 +6,7 @@ import javax.persistence.*;
 import com.google.gson.annotations.Expose;
 import com.tha103.artion.activityComment.model.ActivityCommentVO;
 
+
 @Entity
 @Table(name = "commentreport")
 public class CommentReportVO {

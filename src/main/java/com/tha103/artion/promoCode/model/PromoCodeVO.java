@@ -11,6 +11,8 @@ import com.tha103.artion.administrator.model.AdministratorVO;
 import com.tha103.artion.memberLevel.model.MemberLevelVO;
 import com.tha103.artion.myPromoCode.model.MyPromoCodeVO;
 import com.tha103.artion.ticketOrder.model.TicketOrderVO;
+ 
+
 
 @Entity
 @Table(name = "promocode")

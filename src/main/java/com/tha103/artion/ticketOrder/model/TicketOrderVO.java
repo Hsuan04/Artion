@@ -20,6 +20,7 @@ import com.tha103.artion.myPromoCode.model.MyPromoCodeVO;
 import com.tha103.artion.seller.model.SellerVO;
 import com.tha103.artion.ticketOrderDetail.model.TicketOrderDetailVO;
 
+
 @Entity
 @Table(name = "ticketorder")
 // 配合 TestHQLWithParameter.java

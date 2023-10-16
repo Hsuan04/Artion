@@ -18,6 +18,7 @@ import com.google.gson.annotations.Expose;
 import com.tha103.artion.member.model.MemberVO;
 import com.tha103.artion.merchOrderDetail.model.MerchOrderDetailVO;
 
+
 @Entity
 @Table(name = "merchorder")
 // 配合 TestHQLWithParameter.java

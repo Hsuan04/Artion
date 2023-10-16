@@ -9,6 +9,7 @@ import javax.servlet.http.*;
 import com.membernotify.model.*;
 import com.membernotify.model.MemberNotifyVO;
 
+
 public class MemberNotifyServlet extends HttpServlet {
 	
 	public void doGet(HttpServletRequest req, HttpServletResponse res)

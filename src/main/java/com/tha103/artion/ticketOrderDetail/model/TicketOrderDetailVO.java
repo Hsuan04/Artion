@@ -6,6 +6,7 @@ import com.google.gson.annotations.Expose;
 import com.tha103.artion.activity.model.ActivityVO;
 import com.tha103.artion.ticketOrder.model.TicketOrderVO;
 
+
 @Entity
 @Table(name = "merchorder")
 // 配合 TestHQLWithParameter.java
