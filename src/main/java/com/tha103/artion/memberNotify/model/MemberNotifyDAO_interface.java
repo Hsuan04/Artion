@@ -8,6 +8,8 @@ public interface MemberNotifyDAO_interface {
           public void delete(Integer memberNotSerialNumber);
           public MemberNotifyVO findByPrimaryKey(Integer memberNotSerialNumber);
           public List<MemberNotifyVO> getAll();
+          
+          
           //�U�νƦX�d��(�ǤJ�Ѽƫ��AMap)(�^�� List)
 //        public List<EmpVO> getAll(Map<String, String[]> map); 
 }
