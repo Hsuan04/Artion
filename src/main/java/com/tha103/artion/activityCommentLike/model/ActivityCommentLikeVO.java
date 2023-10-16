@@ -12,40 +12,47 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.google.gson.annotations.Expose;
 import com.tha103.artion.activityComment.model.ActivityCommentVO;
 import com.tha103.artion.member.model.MemberVO;
 
 @Entity
-@Table(name = "ActivityCommentLike")
+@Table(name = "activitycommentlike")
 public class ActivityCommentLikeVO {
+	@Expose
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY) 
 	private Integer actComLikeId;
-
+	
+	//留言按讚(fk)>會員(pk)
 	@ManyToOne
 	@JoinColumn(name = "mem_id", referencedColumnName = "mem_id")
-	private MemberVO memId;
-
+	private MemberVO member;
+	
+	//留言按讚(fk)>活動留言(pk)
 	@ManyToOne
 	@JoinColumn(name = "actCom_id", referencedColumnName = "actCom_id")
-	private ActivityCommentVO actComId;
+	private ActivityCommentVO actCom;
 	
+	@Expose
 	@Column(name="actComLike_status")
 	private Boolean actComLikeStatus;
 	
+	@Expose
 	@Column(name="actComLike_time")
 	private Timestamp actComLikeTime;
-	
+
+//-------------------------------------------------------------
 	public ActivityCommentLikeVO() {
 		super();
 	}
 
-	public ActivityCommentLikeVO(Integer actComLikeId, MemberVO memId, ActivityCommentVO actComId,
+	public ActivityCommentLikeVO(Integer actComLikeId, MemberVO member, ActivityCommentVO actCom,
 			Boolean actComLikeStatus, Timestamp actComLikeTime) {
 		super();
 		this.actComLikeId = actComLikeId;
-		this.memId = memId;
-		this.actComId = actComId;
+		this.member = member;
+		this.actCom = actCom;
 		this.actComLikeStatus = actComLikeStatus;
 		this.actComLikeTime = actComLikeTime;
 	}
@@ -57,21 +64,21 @@ public class ActivityCommentLikeVO {
 	public void setActComLikeId(Integer actComLikeId) {
 		this.actComLikeId = actComLikeId;
 	}
-	
-	public MemberVO getMemId() {
-		return memId;
+
+	public MemberVO getMember() {
+		return member;
 	}
 
-	public void setMemId(MemberVO memId) {
-		this.memId = memId;
+	public void setMember(MemberVO member) {
+		this.member = member;
 	}
 
-	public ActivityCommentVO getActComId() {
-		return actComId;
+	public ActivityCommentVO getActCom() {
+		return actCom;
 	}
 
-	public void setActComId(ActivityCommentVO actComId) {
-		this.actComId = actComId;
+	public void setActCom(ActivityCommentVO actCom) {
+		this.actCom = actCom;
 	}
 
 	public Boolean getActComLikeStatus() {
@@ -88,6 +95,12 @@ public class ActivityCommentLikeVO {
 
 	public void setActComLikeTime(Timestamp actComLikeTime) {
 		this.actComLikeTime = actComLikeTime;
+	}
+
+	@Override
+	public String toString() {
+		return "ActivityCommentLikeVO [actComLikeId=" + actComLikeId + ", actComLikeStatus=" + actComLikeStatus
+				+ ", actComLikeTime=" + actComLikeTime + "]";
 	}
 	
 }

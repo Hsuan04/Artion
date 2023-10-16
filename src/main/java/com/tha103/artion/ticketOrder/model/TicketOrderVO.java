@@ -14,9 +14,10 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.google.gson.annotations.Expose;
 import com.tha103.artion.member.model.MemberVO;
 import com.tha103.artion.myPromoCode.model.MyPromoCodeVO;
-import com.tha103.artion.seller.model.SellerHibernateVO;
+import com.tha103.artion.seller.model.SellerVO;
 import com.tha103.artion.ticketOrderDetail.model.TicketOrderDetailVO;
 
 @Entity
@@ -24,59 +25,74 @@ import com.tha103.artion.ticketOrderDetail.model.TicketOrderDetailVO;
 // 配合 TestHQLWithParameter.java
 
 public class TicketOrderVO {
+	@Expose
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "ticketOrd_id", updatable = false)
 	private Integer ticketOrdId;
 
-	@OneToMany(mappedBy = "ticketorder", cascade = CascadeType.ALL)
-	private Set<TicketOrderDetailVO> ticketOrderDetailsDetailVOs;
-
+	@Expose
 	@Column(name = "ticketOrd_time", insertable = false, updatable = false)
 	private Timestamp ticketOrdTime;
 
+	//票卷訂單(fk)>會員(pk)
 	@ManyToOne
 	@JoinColumn(name = "mem_id", referencedColumnName = "mem_id")
 	private MemberVO memId;
 
+	@Expose
 	@Column(name = "ticketOrd_status")
 	private Integer ticketOrdStatus;
 
+	@Expose
 	@Column(name = "ticketOrd_totalPrice")
 	private Double ticketOrdTotalPrice;
 
+	@Expose
 	@Column(name = "ticketOrd_proCodeAmount")
 	private Double ticketOrdProCodeAmount;
 
+	@Expose
 	@Column(name = "ticketOrd_actuallyAmount")
 	private Double ticketOrdActuallyAmount;
 
+	@Expose
 	@Column(name = "ticketOrd_payStatus")
 	private Integer ticketOrdPayStatus;
 
+	//票卷訂單(fk)>我的優惠碼(pk)
 	@ManyToOne
 	@JoinColumn(name = "myProCode_id", referencedColumnName = "myProCode_id")
 	private MyPromoCodeVO myProCodeId;
 
+	@Expose
 	@Column(name = "ticketOrd_address")
 	private String ticketOrdAddress;
 
+	// 票卷訂單(fk)>廠商(pk)
 	@ManyToOne
 	@JoinColumn(name = "sel_id", referencedColumnName = "sel_id")
-	private SellerHibernateVO selId;
+	private SellerVO sel;
 
+	@Expose
 	@Column(name = "ticketOrd_code")
 	private String ticketOrdCode;
 
+//-----------------------以下為OneToMany-----------------------
+	//票卷訂單(pk)>票卷訂單明細(fk)
+	@Expose
+	@OneToMany(mappedBy = "ticketorder", cascade = CascadeType.ALL)
+	private Set<TicketOrderDetailVO> ticOrdDets;
+
+//-------------------------------------------------------------
 	public TicketOrderVO() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	public TicketOrderVO(Integer ticketOrdId, Timestamp ticketOrdTime, MemberVO memId, Integer ticketOrdStatus,
 			Double ticketOrdTotalPrice, Double ticketOrdProCodeAmount, Double ticketOrdActuallyAmount,
-			Integer ticketOrdPayStatus, MyPromoCodeVO myProCodeId, String ticketOrdAddress, SellerHibernateVO selId,
-			String ticketOrdCode) {
+			Integer ticketOrdPayStatus, MyPromoCodeVO myProCodeId, String ticketOrdAddress, SellerVO sel,
+			String ticketOrdCode, Set<TicketOrderDetailVO> ticOrdDets) {
 		super();
 		this.ticketOrdId = ticketOrdId;
 		this.ticketOrdTime = ticketOrdTime;
@@ -88,8 +104,9 @@ public class TicketOrderVO {
 		this.ticketOrdPayStatus = ticketOrdPayStatus;
 		this.myProCodeId = myProCodeId;
 		this.ticketOrdAddress = ticketOrdAddress;
-		this.selId = selId;
+		this.sel = sel;
 		this.ticketOrdCode = ticketOrdCode;
+		this.ticOrdDets = ticOrdDets;
 	}
 
 	public Integer getTicketOrdId() {
@@ -98,14 +115,6 @@ public class TicketOrderVO {
 
 	public void setTicketOrdId(Integer ticketOrdId) {
 		this.ticketOrdId = ticketOrdId;
-	}
-
-	public Set<TicketOrderDetailVO> getTicketOrderDetailsDetailVOs() {
-		return ticketOrderDetailsDetailVOs;
-	}
-
-	public void setTicketOrderDetailsDetailVOs(Set<TicketOrderDetailVO> ticketOrderDetailsDetailVOs) {
-		this.ticketOrderDetailsDetailVOs = ticketOrderDetailsDetailVOs;
 	}
 
 	public Timestamp getTicketOrdTime() {
@@ -180,12 +189,12 @@ public class TicketOrderVO {
 		this.ticketOrdAddress = ticketOrdAddress;
 	}
 
-	public SellerHibernateVO getSelId() {
-		return selId;
+	public SellerVO getSel() {
+		return sel;
 	}
 
-	public void setSelId(SellerHibernateVO selId) {
-		this.selId = selId;
+	public void setSel(SellerVO sel) {
+		this.sel = sel;
 	}
 
 	public String getTicketOrdCode() {
@@ -196,14 +205,21 @@ public class TicketOrderVO {
 		this.ticketOrdCode = ticketOrdCode;
 	}
 
+	public Set<TicketOrderDetailVO> getTicOrdDets() {
+		return ticOrdDets;
+	}
+
+	public void setTicOrdDets(Set<TicketOrderDetailVO> ticOrdDets) {
+		this.ticOrdDets = ticOrdDets;
+	}
+
 	@Override
 	public String toString() {
-		return "TicketOrderVO [ticketOrdId=" + ticketOrdId + ", ticketOrdTime=" + ticketOrdTime + ", memId=" + memId
-				+ ", ticketOrdStatus=" + ticketOrdStatus + ", ticketOrdTotalPrice=" + ticketOrdTotalPrice
-				+ ", ticketOrdProCodeAmount=" + ticketOrdProCodeAmount + ", ticketOrdActuallyAmount="
-				+ ticketOrdActuallyAmount + ", ticketOrdPayStatus=" + ticketOrdPayStatus + ", myProCodeId="
-				+ myProCodeId + ", ticketOrdAddress=" + ticketOrdAddress + ", selId=" + selId + ", ticketOrdCode="
-				+ ticketOrdCode + "]";
+		return "TicketOrderVO [ticketOrdId=" + ticketOrdId + ", ticketOrdTime=" + ticketOrdTime + ", ticketOrdStatus="
+				+ ticketOrdStatus + ", ticketOrdTotalPrice=" + ticketOrdTotalPrice + ", ticketOrdProCodeAmount="
+				+ ticketOrdProCodeAmount + ", ticketOrdActuallyAmount=" + ticketOrdActuallyAmount
+				+ ", ticketOrdPayStatus=" + ticketOrdPayStatus + ", ticketOrdAddress=" + ticketOrdAddress
+				+ ", ticketOrdCode=" + ticketOrdCode + "]";
 	}
 
 }
