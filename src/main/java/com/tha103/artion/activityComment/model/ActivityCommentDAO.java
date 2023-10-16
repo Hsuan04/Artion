@@ -1,15 +1,36 @@
 package com.tha103.artion.activityComment.model;
 
-import org.hibernate.Session;
+import java.util.List;
 
-import util.HibernateUtil;
+public class ActivityCommentDAO implements ActivityCommentDAO_interface {
 
-public class ActivityCommentDAO implements ActivityCommentDAO_interface{
+	@Override
 	public int add(ActivityCommentVO actCom) {
-		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
-	try {
-		session.beginTransaction();
-		Integer actComId = ()
+		// TODO Auto-generated method stub
+		return 0;
 	}
+
+	@Override
+	public int update(ActivityCommentVO actCom) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public int delete(Integer actComId) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public ActivityCommentVO findByPK(Integer actComId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<ActivityCommentVO> getAll() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

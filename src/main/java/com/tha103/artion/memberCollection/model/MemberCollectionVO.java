@@ -7,12 +7,11 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import com.tha103.artion.member.model.MemberVO;
 import com.google.gson.annotations.Expose;
 import com.tha103.artion.activity.model.ActivityVO;
+import com.tha103.artion.member.model.MemberVO;
 
 @Entity
 @Table(name = "membercollection")
