@@ -1,4 +1,4 @@
-package com.tha103.artion.sellernotification.model;
+package com.tha103.artion.sellerNotification.model;
 
 import java.sql.Timestamp;
 
@@ -7,31 +7,59 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+
+import com.google.gson.annotations.Expose;
+import com.tha103.artion.seller.model.SellerVO;
 
 @Entity
 @Table(name = "sellernotification")
 
 public class SellerNotificationVO {
+	@Expose
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "selNot_serialNumber")
 	private Integer selNotSerialNumber;
 
-	@Column(name = "sel_id")
-	private Integer selId;
+	// 廠商通知(fk)>廠商(pk)
+	@ManyToOne
+	@JoinColumn(name = "sel_id", referencedColumnName = "sel_id")
+	private SellerVO seller;
 
+	@Expose
 	@Column(name = "selNot_readStatus", columnDefinition = "tinyint")
 	private boolean selNotReadStatus;
 
+	@Expose
 	@Column(name = "selNot_existStatus", columnDefinition = "tinyint")
 	private boolean selNotExistStatus;
 
+	@Expose
 	@Column(name = "selNot_content")
 	private String selNotContent;
 
-	@Column(name = "selNot_receiveDateTime")
+	@Expose
+	@Column(name = "selNot_receiveDateTime", insertable = false, updatable = false)
 	private Timestamp selNotReceiveDateTime;
+	
+//-------------------------------------------------------------
+	public SellerNotificationVO() {
+		super();
+	}
+
+	public SellerNotificationVO(Integer selNotSerialNumber, SellerVO seller, boolean selNotReadStatus,
+			boolean selNotExistStatus, String selNotContent, Timestamp selNotReceiveDateTime) {
+		super();
+		this.selNotSerialNumber = selNotSerialNumber;
+		this.seller = seller;
+		this.selNotReadStatus = selNotReadStatus;
+		this.selNotExistStatus = selNotExistStatus;
+		this.selNotContent = selNotContent;
+		this.selNotReceiveDateTime = selNotReceiveDateTime;
+	}
 
 	public Integer getSelNotSerialNumber() {
 		return selNotSerialNumber;
@@ -41,12 +69,12 @@ public class SellerNotificationVO {
 		this.selNotSerialNumber = selNotSerialNumber;
 	}
 
-	public Integer getSelId() {
-		return selId;
+	public SellerVO getSeller() {
+		return seller;
 	}
 
-	public void setSelId(Integer selId) {
-		this.selId = selId;
+	public void setSeller(SellerVO seller) {
+		this.seller = seller;
 	}
 
 	public boolean isSelNotReadStatus() {
@@ -61,41 +89,31 @@ public class SellerNotificationVO {
 		return selNotExistStatus;
 	}
 
-
-
 	public void setSelNotExistStatus(boolean selNotExistStatus) {
 		this.selNotExistStatus = selNotExistStatus;
 	}
-
-
 
 	public String getSelNotContent() {
 		return selNotContent;
 	}
 
-
-
 	public void setSelNotContent(String selNotContent) {
 		this.selNotContent = selNotContent;
 	}
-
-
 
 	public Timestamp getSelNotReceiveDateTime() {
 		return selNotReceiveDateTime;
 	}
 
-
-
 	public void setSelNotReceiveDateTime(Timestamp selNotReceiveDateTime) {
 		this.selNotReceiveDateTime = selNotReceiveDateTime;
 	}
 
-
-
-	public SellerNotificationVO() {
-		super();
-		// TODO Auto-generated constructor stub
+	@Override
+	public String toString() {
+		return "SellerNotificationVO [selNotSerialNumber=" + selNotSerialNumber + ", selNotReadStatus="
+				+ selNotReadStatus + ", selNotExistStatus=" + selNotExistStatus + ", selNotContent=" + selNotContent
+				+ ", selNotReceiveDateTime=" + selNotReceiveDateTime + "]";
 	}
-
+	
 }
