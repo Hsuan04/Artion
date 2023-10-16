@@ -14,7 +14,8 @@ public class AreaVO {
 	@Column(name = "area_name")
 	private String areaName;
 	
-	@Column(name = "city_id")
+	@ManyToOne
+	@JoinColumn(name = "city_id", referencedColumnName = "city_id")
 	private Integer cityId;
 	
 	

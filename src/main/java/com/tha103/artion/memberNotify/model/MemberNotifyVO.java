@@ -1,10 +1,11 @@
-package com.tha103.artion.membernotify.model;
+package com.tha103.artion.memberNotify.model;
 
 
 
 import java.sql.Timestamp;
 
 import javax.persistence.*;
+
 
 
 @Entity
