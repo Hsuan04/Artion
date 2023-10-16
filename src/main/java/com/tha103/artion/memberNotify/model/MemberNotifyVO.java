@@ -1,4 +1,4 @@
-package com.tha103.artion.memberNotify.model;
+package com.tha103.artion.membernotify.model;
 
 
 
