@@ -2,175 +2,236 @@ package com.tha103.artion.merch.model;
 
 import java.sql.Timestamp;
 import java.util.Arrays;
+import java.util.Set;
 
 import javax.persistence.*;
+
+import com.google.gson.annotations.Expose;
+import com.tha103.artion.commentReport.model.CommentReportVO;
+import com.tha103.artion.merchOrderDetail.model.MerchOrderDetailVO;
 
 
 @Entity
 @Table(name = "merch")
 public class MerchVO {
+	@Expose
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "merch_id", updatable = false)
 	private Integer merchId;
 	
+	@Expose
 	@Column(name = "merch_picture1", columnDefinition = "longblob")
 	private Byte[] merchPicture1;
 	
+	@Expose
 	@Column(name = "merch_picture2", columnDefinition = "longblob")
 	private Byte[] merchPicture2;
 	
+	@Expose
 	@Column(name = "merch_picture3", columnDefinition = "longblob")
 	private Byte[] merchPicture3;
 	
+	@Expose
 	@Column(name = "merch_picture4", columnDefinition = "longblob")
 	private Byte[] merchPicture4;
 	
+	@Expose
 	@Column(name = "merch_name")
 	private String merchName;
 	
+	@Expose
 	@Column(name = "merch_total")
 	private Integer merchTotal;
 	
+	@Expose
 	@Column(name = "merch_price")
 	private Integer merchPrice;
 	
+	@Expose
 	@Column(name = "merch_sort")
 	private Integer merchSort;
 	
+	@Expose
 	@Column(name = "merch_startTime")
 	private Timestamp merchStartTime;
 	
+	@Expose
 	@Column(name = "merch_endTime")
 	private Timestamp merchEndTime;
 	
+	@Expose
 	@Column(name = "merch_introduction")
 	private String merchIntroduction;
 	
+	@Expose
 	@Column(name = "merch_sellAmount")
 	private Integer merchSellAmount;
 	
+	@Expose
 	@Column(name = "merch_status")
 	private Integer merchStatus;
 	
+//-----------------------以下為OneToMany-----------------------
+	//周邊商品(pk)>周邊商品訂單明細(fk)
+	@Expose
+	@OneToMany(mappedBy = "merch", cascade = CascadeType.ALL)
+	private Set<MerchOrderDetailVO> metOrdDets;
+//-------------------------------------------------------------
 	public MerchVO() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
-	public MerchVO(Integer merch_id, Byte[] merch_picture1, Byte[] merch_picture2, Byte[] merch_picture3,
-			Byte[] merch_picture4, String merch_name, Integer merch_total, Integer merch_price, Integer merch_sort,
-			Timestamp merch_startTime, Timestamp merch_endTime, String merch_introduction, Integer merch_sellAmount,
-			Integer merch_status) {
+
+	public MerchVO(Integer merchId, Byte[] merchPicture1, Byte[] merchPicture2, Byte[] merchPicture3,
+			Byte[] merchPicture4, String merchName, Integer merchTotal, Integer merchPrice, Integer merchSort,
+			Timestamp merchStartTime, Timestamp merchEndTime, String merchIntroduction, Integer merchSellAmount,
+			Integer merchStatus, Set<MerchOrderDetailVO> metOrdDets) {
 		super();
-		this.merchId = merch_id;
-		this.merchPicture1 = merch_picture1;
-		this.merchPicture2 = merch_picture2;
-		this.merchPicture3 = merch_picture3;
-		this.merchPicture4 = merch_picture4;
-		this.merchName = merch_name;
-		this.merchTotal = merch_total;
-		this.merchPrice = merch_price;
-		this.merchSort = merch_sort;
-		this.merchStartTime = merch_startTime;
-		this.merchEndTime = merch_endTime;
-		this.merchIntroduction = merch_introduction;
-		this.merchSellAmount = merch_sellAmount;
-		this.merchStatus = merch_status;
+		this.merchId = merchId;
+		this.merchPicture1 = merchPicture1;
+		this.merchPicture2 = merchPicture2;
+		this.merchPicture3 = merchPicture3;
+		this.merchPicture4 = merchPicture4;
+		this.merchName = merchName;
+		this.merchTotal = merchTotal;
+		this.merchPrice = merchPrice;
+		this.merchSort = merchSort;
+		this.merchStartTime = merchStartTime;
+		this.merchEndTime = merchEndTime;
+		this.merchIntroduction = merchIntroduction;
+		this.merchSellAmount = merchSellAmount;
+		this.merchStatus = merchStatus;
+		this.metOrdDets = metOrdDets;
 	}
-	public Integer getMerch_id() {
+
+	public Integer getMerchId() {
 		return merchId;
 	}
-	public void setMerch_id(Integer merch_id) {
-		this.merchId = merch_id;
+
+	public void setMerchId(Integer merchId) {
+		this.merchId = merchId;
 	}
-	public Byte[] getMerch_picture1() {
+
+	public Byte[] getMerchPicture1() {
 		return merchPicture1;
 	}
-	public void setMerch_picture1(Byte[] merch_picture1) {
-		this.merchPicture1 = merch_picture1;
+
+	public void setMerchPicture1(Byte[] merchPicture1) {
+		this.merchPicture1 = merchPicture1;
 	}
-	public Byte[] getMerch_picture2() {
+
+	public Byte[] getMerchPicture2() {
 		return merchPicture2;
 	}
-	public void setMerch_picture2(Byte[] merch_picture2) {
-		this.merchPicture2 = merch_picture2;
+
+	public void setMerchPicture2(Byte[] merchPicture2) {
+		this.merchPicture2 = merchPicture2;
 	}
-	public Byte[] getMerch_picture3() {
+
+	public Byte[] getMerchPicture3() {
 		return merchPicture3;
 	}
-	public void setMerch_picture3(Byte[] merch_picture3) {
-		this.merchPicture3 = merch_picture3;
+
+	public void setMerchPicture3(Byte[] merchPicture3) {
+		this.merchPicture3 = merchPicture3;
 	}
-	public Byte[] getMerch_picture4() {
+
+	public Byte[] getMerchPicture4() {
 		return merchPicture4;
 	}
-	public void setMerch_picture4(Byte[] merch_picture4) {
-		this.merchPicture4 = merch_picture4;
+
+	public void setMerchPicture4(Byte[] merchPicture4) {
+		this.merchPicture4 = merchPicture4;
 	}
-	public String getMerch_name() {
+
+	public String getMerchName() {
 		return merchName;
 	}
-	public void setMerch_name(String merch_name) {
-		this.merchName = merch_name;
+
+	public void setMerchName(String merchName) {
+		this.merchName = merchName;
 	}
-	public Integer getMerch_total() {
+
+	public Integer getMerchTotal() {
 		return merchTotal;
 	}
-	public void setMerch_total(Integer merch_total) {
-		this.merchTotal = merch_total;
+
+	public void setMerchTotal(Integer merchTotal) {
+		this.merchTotal = merchTotal;
 	}
-	public Integer getMerch_price() {
+
+	public Integer getMerchPrice() {
 		return merchPrice;
 	}
-	public void setMerch_price(Integer merch_price) {
-		this.merchPrice = merch_price;
+
+	public void setMerchPrice(Integer merchPrice) {
+		this.merchPrice = merchPrice;
 	}
-	public Integer getMerch_sort() {
+
+	public Integer getMerchSort() {
 		return merchSort;
 	}
-	public void setMerch_sort(Integer merch_sort) {
-		this.merchSort = merch_sort;
+
+	public void setMerchSort(Integer merchSort) {
+		this.merchSort = merchSort;
 	}
-	public Timestamp getMerch_startTime() {
+
+	public Timestamp getMerchStartTime() {
 		return merchStartTime;
 	}
-	public void setMerch_startTime(Timestamp merch_startTime) {
-		this.merchStartTime = merch_startTime;
+
+	public void setMerchStartTime(Timestamp merchStartTime) {
+		this.merchStartTime = merchStartTime;
 	}
-	public Timestamp getMerch_endTime() {
+
+	public Timestamp getMerchEndTime() {
 		return merchEndTime;
 	}
-	public void setMerch_endTime(Timestamp merch_endTime) {
-		this.merchEndTime = merch_endTime;
+
+	public void setMerchEndTime(Timestamp merchEndTime) {
+		this.merchEndTime = merchEndTime;
 	}
-	public String getMerch_introduction() {
+
+	public String getMerchIntroduction() {
 		return merchIntroduction;
 	}
-	public void setMerch_introduction(String merch_introduction) {
-		this.merchIntroduction = merch_introduction;
+
+	public void setMerchIntroduction(String merchIntroduction) {
+		this.merchIntroduction = merchIntroduction;
 	}
-	public Integer getMerch_sellAmount() {
+
+	public Integer getMerchSellAmount() {
 		return merchSellAmount;
 	}
-	public void setMerch_sellAmount(Integer merch_sellAmount) {
-		this.merchSellAmount = merch_sellAmount;
+
+	public void setMerchSellAmount(Integer merchSellAmount) {
+		this.merchSellAmount = merchSellAmount;
 	}
-	public Integer getMerch_status() {
+
+	public Integer getMerchStatus() {
 		return merchStatus;
 	}
-	public void setMerch_status(Integer merch_status) {
-		this.merchStatus = merch_status;
+
+	public void setMerchStatus(Integer merchStatus) {
+		this.merchStatus = merchStatus;
 	}
+
+	public Set<MerchOrderDetailVO> getMetOrdDets() {
+		return metOrdDets;
+	}
+
+	public void setMetOrdDets(Set<MerchOrderDetailVO> metOrdDets) {
+		this.metOrdDets = metOrdDets;
+	}
+
 	@Override
 	public String toString() {
-		return "MerchVO [merch_id=" + merchId + ", merch_picture1=" + Arrays.toString(merchPicture1)
-				+ ", merch_picture2=" + Arrays.toString(merchPicture2) + ", merch_picture3="
-				+ Arrays.toString(merchPicture3) + ", merch_picture4=" + Arrays.toString(merchPicture4)
-				+ ", merch_name=" + merchName + ", merch_total=" + merchTotal + ", merch_price=" + merchPrice
-				+ ", merch_sort=" + merchSort + ", merch_startTime=" + merchStartTime + ", merch_endTime="
-				+ merchEndTime + ", merch_introduction=" + merchIntroduction + ", merch_sellAmount="
-				+ merchSellAmount + ", merch_status=" + merchStatus + "]";
+		return "MerchVO [merchId=" + merchId + ", merchPicture1=" + Arrays.toString(merchPicture1) + ", merchPicture2="
+				+ Arrays.toString(merchPicture2) + ", merchPicture3=" + Arrays.toString(merchPicture3)
+				+ ", merchPicture4=" + Arrays.toString(merchPicture4) + ", merchName=" + merchName + ", merchTotal="
+				+ merchTotal + ", merchPrice=" + merchPrice + ", merchSort=" + merchSort + ", merchStartTime="
+				+ merchStartTime + ", merchEndTime=" + merchEndTime + ", merchIntroduction=" + merchIntroduction
+				+ ", merchSellAmount=" + merchSellAmount + ", merchStatus=" + merchStatus + "]";
 	}
-	
 	
 }

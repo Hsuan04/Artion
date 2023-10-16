@@ -18,24 +18,24 @@
 		<mapping class="com.tha103.artion.member.model.MemberVO"/>
   		<mapping class="com.tha103.artion.activityComment.model.ActivityCommentVO"/>
   		<mapping class="com.tha103.artion.memberCollection.model.MemberCollectionVO"/>
-  		<mapping class="com.tha103.artion.memberlevel.model.MemberlevelVO"/>
+  		<mapping class="com.tha103.artion.memberlevel.model.MemberLevelVO"/>
   		<mapping class="com.tha103.artion.myPromoCode.model.MyPromoCodeVO"/>
 		<mapping class="com.tha103.artion.area.model.AreaVO"/>
   		<mapping class="com.tha103.artion.city.model.CityVO"/>
-  		<mapping class="com.tha103.artion.membernotify.model.MembernotifyVO"/>
-  		<mapping class="com.tha103.artion.merchorder.model.MerchOrderVO"/>
-  		<mapping class="com.tha103.artion.merchorderdetail.model.MerchOrderDetailVO"/>
-  		<mapping class="com.tha103.artion.ticketorder.model.TicketOrderVO"/>
-  		<mapping class="com.tha103.artion.ticketorderdetail.model.TicketOrderDetailVO"/>
+  		<mapping class="com.tha103.artion.memberNotify.model.MemberNotifyVO"/>
+  		<mapping class="com.tha103.artion.merchOrder.model.MerchOrderVO"/>
+  		<mapping class="com.tha103.artion.merchOrderDetail.model.MerchOrderDetailVO"/>
+  		<mapping class="com.tha103.artion.ticketOrder.model.TicketOrderVO"/>
+  		<mapping class="com.tha103.artion.ticketOrderDetail.model.TicketOrderDetailVO"/>
   		<mapping class="com.tha103.artion.activityLike.model.ActivityLikeVO"/>
   		<mapping class="com.tha103.artion.activityCommentLike.model.ActivityCommentLikeVO"/>
-  		<mapping class="com.tha103.artion.sellernotification.model.SellerNotificationVO"/>
+  		<mapping class="com.tha103.artion.sellerNotification.model.SellerNotificationVO"/>
   		<mapping class="com.tha103.artion.seller.model.SellerVO"/>
   		<mapping class="com.tha103.artion.activity.model.ActivityVO"/>
   		<mapping class="com.tha103.artion.administrator.model.AdministratorVO"/>
-  		<mapping class="com.tha103.artion.commentreport.model.CommentReportVO"/>
+  		<mapping class="com.tha103.artion.commentReport.model.CommentReportVO"/>
   		<mapping class="com.tha103.artion.merch.model.MerchVO"/>
-  		<mapping class="com.tha103.artion.promocode.model.PromocodeVO"/>
+  		<mapping class="com.tha103.artion.promoCode.model.PromoCodeVO"/>
   		
   		
 	</session-factory>

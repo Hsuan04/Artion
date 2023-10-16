@@ -1,94 +1,98 @@
-package com.tha103.artion.ticketorderdetail.model;
+package com.tha103.artion.ticketOrderDetail.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+
+import com.google.gson.annotations.Expose;
+import com.tha103.artion.activity.model.ActivityVO;
+import com.tha103.artion.ticketOrder.model.TicketOrderVO;
 
 @Entity
 @Table(name = "merchorder")
 // 配合 TestHQLWithParameter.java
-
 public class TicketOrderDetailVO {
+	@Expose
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "ticOrdDetail_id", updatable = false)
-	private Integer ticOrdDetailId;
+	private Integer ticOrdDetId;
 
-	@Column(name = "ticketOrd_id")
-	private Integer ticketOrdId;
+	// 票卷訂單明細(fk)>票卷訂單(pk)
+	@ManyToOne
+	@JoinColumn(name = "ticketOrd_id", referencedColumnName = "ticketOrd_id")
+	private TicketOrderVO ticketorder;
 
+	@Expose
 	@Column(name = "ticketOrdDetail_quantity")
-	private Integer ticketOrdDetailQuantity;
+	private Integer ticOrdDetQuantity;
 
+	@Expose
 	@Column(name = "ticOrdDetail_price")
-	private Double ticOrdDetailPrice;
+	private Double ticOrdDetPrice;
 
-	@Column(name = "act_id")
-	private Integer actId;
+	// 票卷訂單明細(fk)>活動(pk)
+	@ManyToOne
+	@JoinColumn(name = "act_id", referencedColumnName = "act_id")
+	private ActivityVO activity;
 
+//-------------------------------------------------------------
 	public TicketOrderDetailVO() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
-	public TicketOrderDetailVO(Integer ticOrdDetailId, Integer ticketOrdId, Integer ticketOrdDetailQuantity,
-			Double ticOrdDetailPrice, Integer actId) {
+	public TicketOrderDetailVO(Integer ticOrdDetId, TicketOrderVO ticketorder, Integer ticOrdDetQuantity,
+			Double ticOrdDetPrice, ActivityVO activity) {
 		super();
-		this.ticOrdDetailId = ticOrdDetailId;
-		this.ticketOrdId = ticketOrdId;
-		this.ticketOrdDetailQuantity = ticketOrdDetailQuantity;
-		this.ticOrdDetailPrice = ticOrdDetailPrice;
-		this.actId = actId;
+		this.ticOrdDetId = ticOrdDetId;
+		this.ticketorder = ticketorder;
+		this.ticOrdDetQuantity = ticOrdDetQuantity;
+		this.ticOrdDetPrice = ticOrdDetPrice;
+		this.activity = activity;
 	}
 
-	public Integer getTicOrdDetailId() {
-		return ticOrdDetailId;
+	public Integer getTicOrdDetId() {
+		return ticOrdDetId;
 	}
 
-	public void setTicOrdDetailId(Integer ticOrdDetailId) {
-		this.ticOrdDetailId = ticOrdDetailId;
+	public void setTicOrdDetId(Integer ticOrdDetId) {
+		this.ticOrdDetId = ticOrdDetId;
 	}
 
-	public Integer getTicketOrdId() {
-		return ticketOrdId;
+	public TicketOrderVO getTicketorder() {
+		return ticketorder;
 	}
 
-	public void setTicketOrdId(Integer ticketOrdId) {
-		this.ticketOrdId = ticketOrdId;
+	public void setTicketorder(TicketOrderVO ticketorder) {
+		this.ticketorder = ticketorder;
 	}
 
-	public Integer getTicketOrdDetailQuantity() {
-		return ticketOrdDetailQuantity;
+	public Integer getTicOrdDetQuantity() {
+		return ticOrdDetQuantity;
 	}
 
-	public void setTicketOrdDetailQuantity(Integer ticketOrdDetailQuantity) {
-		this.ticketOrdDetailQuantity = ticketOrdDetailQuantity;
+	public void setTicOrdDetQuantity(Integer ticOrdDetQuantity) {
+		this.ticOrdDetQuantity = ticOrdDetQuantity;
 	}
 
-	public Double getTicOrdDetailPrice() {
-		return ticOrdDetailPrice;
+	public Double getTicOrdDetPrice() {
+		return ticOrdDetPrice;
 	}
 
-	public void setTicOrdDetailPrice(Double ticOrdDetailPrice) {
-		this.ticOrdDetailPrice = ticOrdDetailPrice;
+	public void setTicOrdDetPrice(Double ticOrdDetPrice) {
+		this.ticOrdDetPrice = ticOrdDetPrice;
 	}
 
-	public Integer getActId() {
-		return actId;
+	public ActivityVO getActivity() {
+		return activity;
 	}
 
-	public void setActId(Integer actId) {
-		this.actId = actId;
+	public void setActivity(ActivityVO activity) {
+		this.activity = activity;
 	}
 
 	@Override
 	public String toString() {
-		return "TicketOrderDetailVO [ticOrdDetailId=" + ticOrdDetailId + ", ticketOrdId=" + ticketOrdId
-				+ ", ticketOrdDetailQuantity=" + ticketOrdDetailQuantity + ", ticOrdDetailPrice=" + ticOrdDetailPrice
-				+ ", actId=" + actId + "]";
+		return "TicketOrderDetailVO [ticOrdDetId=" + ticOrdDetId + ", ticOrdDetQuantity=" + ticOrdDetQuantity
+				+ ", ticOrdDetPrice=" + ticOrdDetPrice + "]";
 	}
 
 }
