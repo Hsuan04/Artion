@@ -1,24 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE hibernate-configuration PUBLIC
-		"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
-		"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
 <hibernate-configuration>
+
 	<session-factory>
+
 		<property name="hibernate.connection.driver_class">com.mysql.cj.jdbc.Driver</property>
 		<property name="hibernate.connection.url">jdbc:mysql://localhost:3306/artion?serverTimezone=Asia/Taipei</property>
 		<property name="hibernate.connection.username">root</property>
-		<property name="hibernate.connection.password">861104</property>
-		<property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+		<property name="hibernate.connection.password">1018</property>
+        
+		<!--SQL?�[,?H?U???MySQL8 -->
+		<property name="hibernate.dialect">org.hibernate.dialect.MySQL8Dialect</property>
 
+		<!--?O?_?n??????@???w???SQL -->
 		<property name="hibernate.show_sql">true</property>
-		<property name="hibernate.format_sql">true</property>
-		<property name="hibernate.hbm2ddl.auto">validate</property>
-		<property name="hebernate.current_session_context_class">thread</property>
-		
+
+        <!-- Disable the second-level cache -->
+        <property name="hibernate.cache.provider_class">org.hibernate.cache.NoCacheProvider</property>
+
+		<!--?????z????, ?H?U???JDBC Transaction -->
+		<property name="hibernate.transaction.coordinator_class">jdbc</property>
+        
+        <!-- Enable Hibernate's automatic session context management -->
+		<property name="hibernate.current_session_context_class">thread</property>
+
 		<mapping class="com.tha103.artion.member.model.MemberVO"/>
   		<mapping class="com.tha103.artion.activityComment.model.ActivityCommentVO"/>
   		<mapping class="com.tha103.artion.memberCollection.model.MemberCollectionVO"/>
-  		<mapping class="com.tha103.artion.memberlevel.model.MemberLevelVO"/>
+  		<mapping class="com.tha103.artion.memberLevel.model.MemberLevelVO"/>
   		<mapping class="com.tha103.artion.myPromoCode.model.MyPromoCodeVO"/>
 		<mapping class="com.tha103.artion.area.model.AreaVO"/>
   		<mapping class="com.tha103.artion.city.model.CityVO"/>
@@ -36,7 +47,7 @@
   		<mapping class="com.tha103.artion.commentReport.model.CommentReportVO"/>
   		<mapping class="com.tha103.artion.merch.model.MerchVO"/>
   		<mapping class="com.tha103.artion.promoCode.model.PromoCodeVO"/>
-  		
-  		
+
 	</session-factory>
+	
 </hibernate-configuration>

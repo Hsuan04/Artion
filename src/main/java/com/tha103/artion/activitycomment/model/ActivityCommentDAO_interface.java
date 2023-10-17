@@ -1,4 +1,4 @@
-package com.tha103.artion.activityComment.model;
+package com.tha103.artion.activitycomment.model;
 
 import java.util.List;
 
