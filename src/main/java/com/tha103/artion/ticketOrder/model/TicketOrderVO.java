@@ -39,7 +39,7 @@ public class TicketOrderVO {
 	//票卷訂單(fk)>會員(pk)
 	@ManyToOne
 	@JoinColumn(name = "mem_id", referencedColumnName = "mem_id")
-	private MemberVO memId;
+	private MemberVO member;
 
 	@Expose
 	@Column(name = "ticketOrd_status")
@@ -64,7 +64,7 @@ public class TicketOrderVO {
 	//票卷訂單(fk)>我的優惠碼(pk)
 	@ManyToOne
 	@JoinColumn(name = "myProCode_id", referencedColumnName = "myProCode_id")
-	private MyPromoCodeVO myProCodeId;
+	private MyPromoCodeVO mypromocode;
 
 	@Expose
 	@Column(name = "ticketOrd_address")
@@ -73,7 +73,7 @@ public class TicketOrderVO {
 	// 票卷訂單(fk)>廠商(pk)
 	@ManyToOne
 	@JoinColumn(name = "sel_id", referencedColumnName = "sel_id")
-	private SellerVO sel;
+	private SellerVO seller;
 
 	@Expose
 	@Column(name = "ticketOrd_code")
@@ -90,14 +90,14 @@ public class TicketOrderVO {
 		super();
 	}
 
-	public TicketOrderVO(Integer ticketOrdId, Timestamp ticketOrdTime, MemberVO memId, Integer ticketOrdStatus,
+	public TicketOrderVO(Integer ticketOrdId, Timestamp ticketOrdTime, MemberVO member, Integer ticketOrdStatus,
 			Double ticketOrdTotalPrice, Double ticketOrdProCodeAmount, Double ticketOrdActuallyAmount,
 			Integer ticketOrdPayStatus, MyPromoCodeVO myProCodeId, String ticketOrdAddress, SellerVO sel,
 			String ticketOrdCode, Set<TicketOrderDetailVO> ticOrdDets) {
 		super();
 		this.ticketOrdId = ticketOrdId;
 		this.ticketOrdTime = ticketOrdTime;
-		this.memId = memId;
+		this.member = member;
 		this.ticketOrdStatus = ticketOrdStatus;
 		this.ticketOrdTotalPrice = ticketOrdTotalPrice;
 		this.ticketOrdProCodeAmount = ticketOrdProCodeAmount;
@@ -127,11 +127,11 @@ public class TicketOrderVO {
 	}
 
 	public MemberVO getMemId() {
-		return memId;
+		return member;
 	}
 
-	public void setMemId(MemberVO memId) {
-		this.memId = memId;
+	public void setMemId(MemberVO member) {
+		this.member = member;
 	}
 
 	public Integer getTicketOrdStatus() {

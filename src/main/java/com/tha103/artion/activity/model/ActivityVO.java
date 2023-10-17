@@ -109,19 +109,19 @@ public class ActivityVO {
 	private String actContent;
 
 	@Expose
-	@Column(name = "act_coverPicture")
+	@Column(name = "act_coverPicture", columnDefinition = "longblob")
 	private byte[] actCoverPicture;
 
 	@Expose
-	@Column(name = "act_picture1")
+	@Column(name = "act_picture1", columnDefinition = "longblob")
 	private byte[] actPicture1;
 
 	@Expose
-	@Column(name = "act_picture2")
+	@Column(name = "act_picture2", columnDefinition = "longblob")
 	private byte[] actPicture2;
 
 	@Expose
-	@Column(name = "act_picture3")
+	@Column(name = "act_picture3", columnDefinition = "longblob")
 	private byte[] actPicture3;
 
 	@Expose
@@ -159,15 +159,15 @@ public class ActivityVO {
 	
 	//活動(FK)>管理者(PK)
 	@ManyToOne
-	@Column(name = "adm_id")
+	@JoinColumn(name = "adm_id", referencedColumnName = "adm_id" )
 	private AdministratorVO admId;
 
 	@Expose
-	@Column(name = "actLastModifiedTime", insertable = false, updatable = false)
+	@Column(name = "act_lastModifiedTime", insertable = false, updatable = false)
 	private Timestamp actLastModifiedTime;
 
 	@Expose
-	@Column(name = "actResultContent")
+	@Column(name = "act_ResultContent")
 	private String actResultContent;
 
 //-----------------------以下為OneToMany-----------------------

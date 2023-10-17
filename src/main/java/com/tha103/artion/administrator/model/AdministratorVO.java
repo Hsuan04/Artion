@@ -35,8 +35,8 @@ public class AdministratorVO {
 	private Integer admIdentity;
 	
 	@Expose
-	@Column(name = "adm_status")
-	private Boolean admStatus;
+	@Column(name = "adm_status", columnDefinition = "tinyint")
+	private Integer admStatus;
 	
 	@Expose
 	@Column(name = "adm_mail")
@@ -81,7 +81,7 @@ public class AdministratorVO {
 		super();
 	}
 
-	public AdministratorVO(Integer admId, String admName, Integer admIdentity, Boolean admStatus, String admMail,
+	public AdministratorVO(Integer admId, String admName, Integer admIdentity, Integer admStatus, String admMail,
 			String admPassword, Date admBirthday, String admMobile, Timestamp admAddTime, Timestamp admLastModifiedTime,
 			Byte[] admProfilePhoto, Integer admRight, Set<PromoCodeVO> proCodes) {
 		super();
@@ -124,11 +124,11 @@ public class AdministratorVO {
 		this.admIdentity = admIdentity;
 	}
 
-	public Boolean getAdmStatus() {
+	public Integer getAdmStatus() {
 		return admStatus;
 	}
 
-	public void setAdmStatus(Boolean admStatus) {
+	public void setAdmStatus(Integer admStatus) {
 		this.admStatus = admStatus;
 	}
 

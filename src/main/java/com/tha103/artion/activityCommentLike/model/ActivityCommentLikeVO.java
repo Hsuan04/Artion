@@ -22,6 +22,7 @@ public class ActivityCommentLikeVO {
 	@Expose
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY) 
+	@Column(name = "actComLike_id")
 	private Integer actComLikeId;
 	
 	//留言按讚(fk)>會員(pk)
@@ -35,8 +36,8 @@ public class ActivityCommentLikeVO {
 	private ActivityCommentVO actCom;
 	
 	@Expose
-	@Column(name="actComLike_status")
-	private Boolean actComLikeStatus;
+	@Column(name="actComLike_status", columnDefinition = "tinyint")
+	private Integer actComLikeStatus;
 	
 	@Expose
 	@Column(name="actComLike_time")
@@ -48,7 +49,7 @@ public class ActivityCommentLikeVO {
 	}
 
 	public ActivityCommentLikeVO(Integer actComLikeId, MemberVO member, ActivityCommentVO actCom,
-			Boolean actComLikeStatus, Timestamp actComLikeTime) {
+			Integer actComLikeStatus, Timestamp actComLikeTime) {
 		super();
 		this.actComLikeId = actComLikeId;
 		this.member = member;
@@ -81,11 +82,11 @@ public class ActivityCommentLikeVO {
 		this.actCom = actCom;
 	}
 
-	public Boolean getActComLikeStatus() {
+	public Integer getActComLikeStatus() {
 		return actComLikeStatus;
 	}
 
-	public void setActComLikeStatus(Boolean actComLikeStatus) {
+	public void setActComLikeStatus(Integer actComLikeStatus) {
 		this.actComLikeStatus = actComLikeStatus;
 	}
 

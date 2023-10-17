@@ -73,8 +73,8 @@ public class ActivityCommentVO {
 	private byte[] actComPicture3;
 
 	@Expose
-	@Column(name = "actCom_status", columnDefinition = "boolean")
-	private Boolean actComStatus;
+	@Column(name = "actCom_status", columnDefinition = "tinyint")
+	private Integer actComStatus;
 	
 //-----------------------以下為OneToMany-----------------------
 	// 活動留言(pk)>活動留言按讚(fk)
@@ -94,7 +94,7 @@ public class ActivityCommentVO {
 
 	public ActivityCommentVO(Integer actComId, MemberVO member, ActivityVO activity, String actComContent,
 			Integer actComReportTimes, Timestamp actComTime, Integer actComLikeTimes, byte[] actComCoverPicture,
-			byte[] actComPicture1, byte[] actComPicture2, byte[] actComPicture3, Boolean actComStatus,
+			byte[] actComPicture1, byte[] actComPicture2, byte[] actComPicture3, Integer actComStatus,
 			Set<ActivityCommentLikeVO> actComLikes, Set<CommentReportVO> comReports) {
 		super();
 		this.actComId = actComId;
@@ -201,11 +201,11 @@ public class ActivityCommentVO {
 		this.actComPicture3 = actComPicture3;
 	}
 
-	public Boolean getActComStatus() {
+	public Integer getActComStatus() {
 		return actComStatus;
 	}
 
-	public void setActComStatus(Boolean actComStatus) {
+	public void setActComStatus(Integer actComStatus) {
 		this.actComStatus = actComStatus;
 	}
 

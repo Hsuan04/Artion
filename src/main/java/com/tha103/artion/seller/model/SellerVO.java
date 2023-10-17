@@ -90,7 +90,7 @@ public class SellerVO {
 	private String selRegisteredAddress;
 
 	@Expose
-	@Column(name = "sel_profilePicture")
+	@Column(name = "sel_profilePicture", columnDefinition = "longblob")
 	private byte[] selProfilePicture;
 
 	@Expose
@@ -103,7 +103,7 @@ public class SellerVO {
 
 	@Expose
 	@Column(name = "sel_status")
-	private String selStatus;
+	private Integer selStatus;
 
 //-----------------------以下為OneToMany-----------------------
 	// 廠商(pk)>活動(fk)
@@ -130,7 +130,7 @@ public class SellerVO {
 			String selAddress, String selUrl, String selFacebook, String selContactPerson, String selIntroduction,
 			String selBankCode, String selBankNumber, String selBankName, String selRemark, String selTitle,
 			String selPrincipal, String selUniformNumbers, String selRegisteredAddress, byte[] selProfilePicture,
-			Timestamp selRegisterdTime, Timestamp selLastModifiedTime, String selStatus, Set<ActivityVO> activitys,
+			Timestamp selRegisterdTime, Timestamp selLastModifiedTime, Integer selStatus, Set<ActivityVO> activitys,
 			Set<SellerNotificationVO> selNots, Set<TicketOrderVO> ticOrds) {
 		super();
 		this.selId = selId;
@@ -328,11 +328,11 @@ public class SellerVO {
 		this.selLastModifiedTime = selLastModifiedTime;
 	}
 
-	public String getSelStatus() {
+	public Integer getSelStatus() {
 		return selStatus;
 	}
 
-	public void setSelStatus(String selStatus) {
+	public void setSelStatus(Integer selStatus) {
 		this.selStatus = selStatus;
 	}
 

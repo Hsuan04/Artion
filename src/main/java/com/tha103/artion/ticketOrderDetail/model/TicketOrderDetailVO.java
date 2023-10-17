@@ -15,7 +15,7 @@ import com.tha103.artion.ticketOrder.model.TicketOrderVO;
 
 
 @Entity
-@Table(name = "merchorder")
+@Table(name = "ticketorderdetail")
 // 配合 TestHQLWithParameter.java
 public class TicketOrderDetailVO {
 	@Expose

@@ -1,6 +1,7 @@
 package com.tha103.artion.member.model;
 
 import java.sql.Date;
+import java.sql.Timestamp;
 import java.util.Arrays;
 import java.util.Set;
 
@@ -37,8 +38,8 @@ public class MemberVO {
 	@Column(name = "mem_nickname")
 	private String memNickname;
 	
-	@Expose
-	@Column(name = "mem_accunt")
+	@Expose 
+	@Column(name = "mem_account")
 	private String memAccount;
 	
 	@Expose
@@ -63,11 +64,11 @@ public class MemberVO {
 	
 	@Expose
 	@Column(name = "mem_registerdTime", updatable = false)
-	private Date memRegisterdTime;
+	private Timestamp memRegisterdTime;
 	
 	@Expose
 	@Column(name = "mem_lastModifiedTime", insertable = false, updatable = false)
-	private Date memLastModifiedTime;
+	private Timestamp memLastModifiedTime;
 
 	//會員(fk)>會員等級(pk)
 	@ManyToOne
@@ -137,8 +138,8 @@ public class MemberVO {
 	
 
 	public MemberVO(Integer memId, String memName, String memNickname, String memAccount, String memPassword,
-		String memGender, Date memBirthday, String memMobile, String memAddress, Date memRegisterdTime,
-		Date memLastModifiedTime, MemberLevelVO memLevLevel, byte[] memProfilePhoto, Integer memTotalCost,
+		String memGender, Date memBirthday, String memMobile, String memAddress, Timestamp memRegisterdTime,
+		Timestamp memLastModifiedTime, MemberLevelVO memLevLevel, byte[] memProfilePhoto, Integer memTotalCost,
 		Set<MyPromoCodeVO> mypromocodes, Set<MemberNotifyVO> membnots, Set<MerchOrderVO> merOrders,
 		Set<TicketOrderVO> ticOrders, Set<ActivityCommentVO> actComs, Set<ActivityLikeVO> actLikes,
 		Set<MemberCollectionVO> memCols, Set<ActivityCommentLikeVO> actComLikes, Set<CommentReportVO> comReps) {
@@ -278,25 +279,25 @@ public class MemberVO {
 
 
 
-	public Date getMemRegisterdTime() {
+	public Timestamp getMemRegisterdTime() {
 		return memRegisterdTime;
 	}
 
 
 
-	public void setMemRegisterdTime(Date memRegisterdTime) {
+	public void setMemRegisterdTime(Timestamp memRegisterdTime) {
 		this.memRegisterdTime = memRegisterdTime;
 	}
 
 
 
-	public Date getMemLastModifiedTime() {
+	public Timestamp getMemLastModifiedTime() {
 		return memLastModifiedTime;
 	}
 
 
 
-	public void setMemLastModifiedTime(Date memLastModifiedTime) {
+	public void setMemLastModifiedTime(Timestamp memLastModifiedTime) {
 		this.memLastModifiedTime = memLastModifiedTime;
 	}
 

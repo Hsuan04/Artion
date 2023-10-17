@@ -33,15 +33,15 @@ public class MemberCollectionVO {
 	private ActivityVO activity;
 	
 	@Expose
-	@Column(name = "memCol_status",columnDefinition = "boolean")
-	private Boolean memColStatus;
+	@Column(name = "memCol_status", columnDefinition = "tinyint")
+	private Integer memColStatus;
 
 //-------------------------------------------------------------
 	public MemberCollectionVO() {
 		super();
 	}
 
-	public MemberCollectionVO(Integer memColSerialNumber, MemberVO member, ActivityVO activity, Boolean memColStatus) {
+	public MemberCollectionVO(Integer memColSerialNumber, MemberVO member, ActivityVO activity, Integer memColStatus) {
 		super();
 		this.memColSerialNumber = memColSerialNumber;
 		this.member = member;
@@ -73,11 +73,11 @@ public class MemberCollectionVO {
 		this.activity = activity;
 	}
 
-	public Boolean getMemColStatus() {
+	public Integer getMemColStatus() {
 		return memColStatus;
 	}
 
-	public void setMemColStatus(Boolean memColStatus) {
+	public void setMemColStatus(Integer memColStatus) {
 		this.memColStatus = memColStatus;
 	}
 

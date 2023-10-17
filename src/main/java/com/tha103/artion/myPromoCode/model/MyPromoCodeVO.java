@@ -19,8 +19,8 @@ public class MyPromoCodeVO {
 	private Integer myProCodeId;
 	
 	@Expose
-	@Column(name="myProCode_status",columnDefinition = "boolean")
-	private Boolean myProCodeStatus;
+	@Column(name="myProCode_status", columnDefinition = "tinyint")
+	private Integer myProCodeStatus;
 	
 	//我的優惠碼(fb)>優惠碼(pk)
 	@ManyToOne
@@ -30,7 +30,7 @@ public class MyPromoCodeVO {
 	//我的優惠碼(fk)>會員(pk)
 	@ManyToOne
 	@JoinColumn(name="mem_id",referencedColumnName = "mem_id")
-	private MemberVO memId;
+	private MemberVO member;
 	
 //-----------------------以下為OneToMany-----------------------
 	//我的優惠碼(pk)>票卷訂單(fk)
@@ -43,13 +43,13 @@ public class MyPromoCodeVO {
 		super();
 	}
 
-	public MyPromoCodeVO(Integer myProCodeId, Boolean myProCodeStatus, PromoCodeVO promocode, MemberVO memId,
+	public MyPromoCodeVO(Integer myProCodeId, Integer myProCodeStatus, PromoCodeVO promocode, MemberVO member,
 			Set<TicketOrderVO> ticOrds) {
 		super();
 		this.myProCodeId = myProCodeId;
 		this.myProCodeStatus = myProCodeStatus;
 		this.promocode = promocode;
-		this.memId = memId;
+		this.member = member;
 		this.ticOrds = ticOrds;
 	}
 
@@ -61,11 +61,11 @@ public class MyPromoCodeVO {
 		this.myProCodeId = myProCodeId;
 	}
 
-	public Boolean getMyProCodeStatus() {
+	public Integer getMyProCodeStatus() {
 		return myProCodeStatus;
 	}
 
-	public void setMyProCodeStatus(Boolean myProCodeStatus) {
+	public void setMyProCodeStatus(Integer myProCodeStatus) {
 		this.myProCodeStatus = myProCodeStatus;
 	}
 
@@ -78,11 +78,11 @@ public class MyPromoCodeVO {
 	}
 
 	public MemberVO getMemId() {
-		return memId;
+		return member;
 	}
 
-	public void setMemId(MemberVO memId) {
-		this.memId = memId;
+	public void setMemId(MemberVO member) {
+		this.member = member;
 	}
 
 	public Set<TicketOrderVO> getTicOrds() {

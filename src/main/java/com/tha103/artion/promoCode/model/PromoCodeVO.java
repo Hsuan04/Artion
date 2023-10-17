@@ -68,8 +68,8 @@ public class PromoCodeVO {
 	private Integer proCodeTotal;
 
 	@Expose
-	@Column(name = "proCode_status")
-	private Boolean proCodeStatus;
+	@Column(name = "proCode_status", columnDefinition = "tinyint")
+	private Integer proCodeStatus;
 
 	@Expose
 	@Column(name = "proCode_describe")
@@ -92,7 +92,7 @@ public class PromoCodeVO {
 
 	public PromoCodeVO(Integer proCodeId, String proCodeName, String proCodeCode, Integer proCodeType,
 			String proCodeValue, Date proCodeStartDate, Date proCodeEndDate, Integer proCodeActType,
-			MemberLevelVO memLevLevel, Integer proCodeTotal, Boolean proCodeStatus, String proCodeDescribe,
+			MemberLevelVO memLevLevel, Integer proCodeTotal, Integer proCodeStatus, String proCodeDescribe,
 			AdministratorVO administrator, Set<MyPromoCodeVO> myProCodes) {
 		super();
 		this.proCodeId = proCodeId;
@@ -191,11 +191,11 @@ public class PromoCodeVO {
 		this.proCodeTotal = proCodeTotal;
 	}
 
-	public Boolean getProCodeStatus() {
+	public Integer getProCodeStatus() {
 		return proCodeStatus;
 	}
 
-	public void setProCodeStatus(Boolean proCodeStatus) {
+	public void setProCodeStatus(Integer proCodeStatus) {
 		this.proCodeStatus = proCodeStatus;
 	}
 

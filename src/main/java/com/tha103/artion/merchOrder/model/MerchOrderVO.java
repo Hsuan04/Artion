@@ -37,7 +37,7 @@ public class MerchOrderVO {
 
 	@Expose
 	@Column(name = "merOrder_actuallyAmount")
-	private Double merOrderActuallyAmount;
+	private Integer merOrderActuallyAmount;
 
 	@Expose
 	@Column(name = "merOrder_time", insertable = false, updatable = false)

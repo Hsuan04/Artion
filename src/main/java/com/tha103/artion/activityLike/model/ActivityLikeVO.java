@@ -27,8 +27,8 @@ public class ActivityLikeVO {
 	private ActivityVO activity;
 	
 	@Expose
-	@Column(name="actLike_status")
-	private Boolean actLikeStatus;
+	@Column(name="actLike_status", columnDefinition = "tinyint")
+	private Integer actLikeStatus;
 	
 	@Expose
 	@Column(name="actLike_time",insertable=false)
@@ -39,7 +39,7 @@ public class ActivityLikeVO {
 		super();
 	}
 
-	public ActivityLikeVO(Integer actLikeId, MemberVO member, ActivityVO activity, Boolean actLikeStatus,
+	public ActivityLikeVO(Integer actLikeId, MemberVO member, ActivityVO activity, Integer actLikeStatus,
 			Timestamp actLikeTime) {
 		super();
 		this.actLikeId = actLikeId;
@@ -73,11 +73,11 @@ public class ActivityLikeVO {
 		this.activity = activity;
 	}
 
-	public Boolean getActLikeStatus() {
+	public Integer getActLikeStatus() {
 		return actLikeStatus;
 	}
 
-	public void setActLikeStatus(Boolean actLikeStatus) {
+	public void setActLikeStatus(Integer actLikeStatus) {
 		this.actLikeStatus = actLikeStatus;
 	}
 

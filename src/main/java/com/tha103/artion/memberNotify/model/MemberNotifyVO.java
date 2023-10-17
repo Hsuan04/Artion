@@ -31,12 +31,12 @@ public class MemberNotifyVO {
 	private MemberVO member;
 	
 	@Expose
-	@Column(name = "memberNot_readStatus")
-	private Boolean memberNotReadStatus;
+	@Column(name = "memberNot_readStatus", columnDefinition = "tinyint")
+	private Integer memberNotReadStatus;
 	
 	@Expose
-	@Column(name = "memberNot_existStatus")
-	private Boolean memberNotExistStatus;
+	@Column(name = "memberNot_existStatus", columnDefinition = "tinyint")
+	private Integer memberNotExistStatus;
 	
 	@Expose
 	@Column(name = "memberNot_content")
@@ -44,7 +44,7 @@ public class MemberNotifyVO {
 	
 	@Expose
 	@Column(name = "memberNot_receiveTime")
-	@Temporal(TemporalType.TIMESTAMP)
+//	@Temporal(TemporalType.TIMESTAMP)
 	private Timestamp memberNotReceiveTime;
 	
 //-------------------------------------------------------------
@@ -68,19 +68,19 @@ public class MemberNotifyVO {
 		this.member = member;
 	}
 
-	public Boolean getMemberNotReadStatus() {
+	public Integer getMemberNotReadStatus() {
 		return memberNotReadStatus;
 	}
 
-	public void setMemberNotReadStatus(Boolean memberNotReadStatus) {
+	public void setMemberNotReadStatus(Integer memberNotReadStatus) {
 		this.memberNotReadStatus = memberNotReadStatus;
 	}
 
-	public Boolean getMemberNotExistStatus() {
+	public Integer getMemberNotExistStatus() {
 		return memberNotExistStatus;
 	}
 
-	public void setMemberNotExistStatus(Boolean memberNotExistStatus) {
+	public void setMemberNotExistStatus(Integer memberNotExistStatus) {
 		this.memberNotExistStatus = memberNotExistStatus;
 	}
 
@@ -100,8 +100,8 @@ public class MemberNotifyVO {
 		this.memberNotReceiveTime = memberNotReceiveTime;
 	}
 
-	public MemberNotifyVO(Integer memberNotSerialNumber, MemberVO member, Boolean memberNotReadStatus,
-			Boolean memberNotExistStatus, String memberNotContent, Timestamp memberNotReceiveTime) {
+	public MemberNotifyVO(Integer memberNotSerialNumber, MemberVO member, Integer memberNotReadStatus,
+			Integer memberNotExistStatus, String memberNotContent, Timestamp memberNotReceiveTime) {
 		super();
 		this.memberNotSerialNumber = memberNotSerialNumber;
 		this.member = member;

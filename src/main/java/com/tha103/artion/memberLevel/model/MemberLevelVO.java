@@ -34,7 +34,7 @@ public class MemberLevelVO {
 //-----------------------以下為OneToMany-----------------------
 	//會員等級(pk)>會員(fk)
 	@Expose
-	@OneToMany(mappedBy = "memberlevel", cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "memLevLevel", cascade = CascadeType.ALL)
 	private Set<MemberVO> members;
 //-------------------------------------------------------------
 	public MemberLevelVO() {
